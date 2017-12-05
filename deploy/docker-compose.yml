@@ -1,0 +1,28 @@
+version: '2'
+services:
+  wangyuecheserver:
+    image: node:6.11.2
+    restart: always
+    command: node ./index.js
+    working_dir: /app
+    volumes:
+      - ./srv:/app
+      - ./dist:/dist
+    environment:
+      - MONGO_URL=mongodb://192.168.0.1:27018/wangyueche
+      - listenport=3006
+    links:
+      - mongodb
+    ports:
+       - "3006:3006"
+    expose:
+       - "3006"
+  mongodb:
+    image:  mongo:3.4
+    restart: always
+    expose:
+       - "27018"
+    volumes:
+       - "/var/db100/dbdata:/data/db -d"
+    ports:
+       - "27018:27017"

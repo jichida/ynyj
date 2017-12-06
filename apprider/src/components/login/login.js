@@ -6,6 +6,9 @@ import NavBar from '../tools/nav.js';
 import Sendauth from '../tools/sendauth.js';
 import '../../../public/newcss/login.css';
 import { withRouter } from 'react-router-dom';
+import Img_More from '../newimg/p27.png';
+import Img_QQ from '../newimg/2.png';
+import Img_Wexin from '../newimg/3.png';
 import {
     required,
     phone,
@@ -72,7 +75,7 @@ export class PageForm extends Component {
                         disabled={pristine || submitting}
                         onClick={handleSubmit(onClickLogin)}
                         >
-                        登录
+                        确认登录
                     </span>
                   </div>
             </Form>
@@ -131,6 +134,13 @@ export class Page extends Component {
                         <img src="newimg/p24.png"  alt=''/>
                     </div>
                     <PageForm onClickLogin={this.onClickLogin}/>
+                    <div className="moreLogin">
+                        <img src={Img_More} />
+                        <div>
+                            <a href="#"><img src={Img_QQ} /></a>
+                            <a href="#"><img src={Img_Wexin} /></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

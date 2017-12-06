@@ -9,6 +9,7 @@ import Pinche from '../carpool/index.js';
 import CarOverlayEmbedded from '../maps/caroverlaymbedded';
 var Sidebar = require('react-sidebar').default;
 import NavBar from '../tools/nav.js';
+import config from '../../env/config.js';
 import {
     ui_setsidebaropen,
     ui_setindexmapvisiable,
@@ -193,7 +194,7 @@ export class AppIndex extends React.Component {
                                     height: "24px",
                                 },
                             ]}
-                            title="网约车"
+                            title={config.appname}
                             />
 
                         <div

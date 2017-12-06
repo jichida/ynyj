@@ -23,6 +23,7 @@ import Myorders from './myorders/myorders';
 import Orderconfirm from './orderconfirm/index';
 import Mywallet from './mywallet/wallet';
 import Mycoupons from './mycoupons/index';
+import Gotodriver from './gotodriver/index';
 //支付界面
 import Pay from './pay/pay';
 //订单列表
@@ -89,6 +90,7 @@ class AppRoot extends React.Component {
                     <Route path="/pay/:triporderid" component={requireAuthentication(Pay)}/>
                     <Route path="/seladdressbook" component={requireAuthentication(Seladdressbook)}/>
                     <Route path="/pinchequery" component={PincheQuery}/>
+                    <Route path="/gotodriver" component={Gotodriver}/>
 
                     <Route component={App}/>
                 </Switch>

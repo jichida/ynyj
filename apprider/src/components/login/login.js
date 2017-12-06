@@ -125,6 +125,10 @@ export class Page extends Component {
         };
         this.props.dispatch(loginwithauth_request(payload));
     }
+    //社交账号登陆
+    loginwith=(v)=>{
+        console.log(`使用${v}登录`);
+    }
     render(){
         return (
             <div className="loginPage AppPage">
@@ -137,8 +141,8 @@ export class Page extends Component {
                     <div className="moreLogin">
                         <img src={Img_More} />
                         <div>
-                            <a href="#"><img src={Img_QQ} /></a>
-                            <a href="#"><img src={Img_Wexin} /></a>
+                            <a onClick={this.loginwith.bind("qq")}><img src={Img_QQ} /></a>
+                            <a onClick={this.loginwith.bind("wx")}><img src={Img_Wexin} /></a>
                         </div>
                     </div>
                 </div>

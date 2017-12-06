@@ -13,11 +13,12 @@ export class Page extends React.Component {
         this.props.history.goBack();
     }
     render() {
+        const title = this.props[this.props.match.params.keyname].title || "关于我们";
         return (
             <div className="settingPage AppPage">
-                <NavBar back={true} title={this.props[this.props.match.params.keyname].title} />
+                <NavBar back={true} title={title} />
                 <div className="list">
-                    {renderHTML(this.props[this.props.match.params.keyname].desc)}
+                    {renderHTML(this.props[this.props.match.params.keyname].desc || "关于我们")}
                 </div>
             </div>
         );

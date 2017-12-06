@@ -40,7 +40,8 @@ import MessageCenter from './messagecenter/messagecenter.js';
 import MessageDetail from './messagecenter/messagedetail.js';
 //支付界面
 import Findpwd from './login/findpwd';
-
+//意见反馈
+// import Feedback from './feedback.js';
 import {
     Route,Redirect,
     Switch
@@ -90,6 +91,7 @@ class AppRoot extends React.Component {
                     <Route path="/mycars" component={requireAuthentication(Mycars)}/>
                     <Route path="/createcar" component={requireAuthentication(Createcar)}/>
                     <Route path="/messagecenter" component={MessageCenter}/>
+                    
                 </Switch>
             </div>
         );

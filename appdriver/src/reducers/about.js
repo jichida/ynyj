@@ -30,6 +30,10 @@ const initial = {
     'driverservicerule':{
       title:'',
       desc:''
+    },
+    'xinshourumen':{
+      title:'',
+      desc:''
     }
   },
 };

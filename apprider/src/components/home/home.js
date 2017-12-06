@@ -119,6 +119,11 @@ export class AppIndex extends React.Component {
         const {issidedbaropen,match,daijialeastbalance} = this.props;
         let pathnamelist = [
             {
+                keyname:'wangyueche',
+                title:'网约车',
+                Co:<CarOverlayEmbedded {...this.props}/>
+            },
+            {
                 keyname:'chuzuche',
                 title:'出租车',
                 Co:<CarOverlayEmbedded {...this.props}/>
@@ -132,16 +137,6 @@ export class AppIndex extends React.Component {
                 keyname:'pinche',
                 title:'拼车',
                 Co:<Pinche {...this.props}/>
-            },
-            {
-                keyname:'lvyoudaba',
-                title:'旅游大巴',
-                Co:<Lvyoudaba {...this.props}/>
-            },
-            {
-                keyname:'daijia',
-                title:'代驾',
-                Co:<CarOverlayEmbedded {...this.props}/>
             }
         ];
 

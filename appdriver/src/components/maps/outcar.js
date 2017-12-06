@@ -83,7 +83,7 @@ class Page extends Component {
 
         return (
             <div className="outcarPage AppPage">
-                <NavBar back={false} title="中南出行" />
+                <NavBar back={false} title="旺旺约车" />
                 <div className="headNav">
                     {titleco}
                 </div>

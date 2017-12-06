@@ -141,8 +141,8 @@ export class Page extends Component {
                     <div className="moreLogin">
                         <img src={Img_More} />
                         <div>
-                            <a onClick={this.loginwith.bind("qq")}><img src={Img_QQ} /></a>
-                            <a onClick={this.loginwith.bind("wx")}><img src={Img_Wexin} /></a>
+                            <a onClick={this.loginwith.bind(this,"qq")}><img src={Img_QQ} /></a>
+                            <a onClick={this.loginwith.bind(this,"wx")}><img src={Img_Wexin} /></a>
                         </div>
                     </div>
                 </div>

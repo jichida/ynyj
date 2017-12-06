@@ -1,8 +1,8 @@
 
 let config =  {
-  secretkey:'zongnanchuxingkey',
+  secretkey:'ynyjkey',
   listenport:process.env.listenport||3006,
-  rooturl:process.env.rooturl || 'http://wangyueche.com28.cn',
+  rooturl:process.env.rooturl || 'http://ynyj.com28.cn',
   issmsdebug:process.env.issmsdebug || false,
   publishdirtest:'../../dist/test',
   publishdirrider:'../../dist/apprider',
@@ -21,7 +21,7 @@ let config =  {
   loginuserexptime:60*60*24*30,//用户登录有效期,30天
   // 'mongodb://'+process.env.MONGO_PORT_27017_TCP_ADDR+':'+process.env.MONGO_PORT_27017_TCP_PORT+'/blog', function(err, db) {
     // ...
-  mongodburl:process.env.MONGO_URL || `mongodb://localhost/zhongnandb`,
+  mongodburl:process.env.MONGO_URL || `mongodb://localhost/ynyj`,
   defaultprofileimage:'newimg/17.png',
   faretypemap:{
        '快车':'001',

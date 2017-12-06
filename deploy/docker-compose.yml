@@ -1,6 +1,6 @@
 version: '2'
 services:
-  wangyuecheserver:
+  ynyjserver:
     image: node:6.11.2
     restart: always
     command: node ./index.js

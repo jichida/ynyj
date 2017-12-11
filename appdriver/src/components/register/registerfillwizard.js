@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import WeUI from 'react-weui';
+import NavBar from '../tools/nav.js';
 import 'weui';
 import 'react-weui/lib/react-weui.min.css';
 import '../../../public/newcss/register.css';
@@ -112,7 +113,8 @@ class RegisterFillWizardForm extends Component {
   renderpage0 =()=> {
         return (
     		<div className="registerPage register1Page  AppPage">
-				<Cells>
+          <NavBar back={true} title="开始成为司机" />
+				      <Cells>
 		            <Cell access onClick={()=>this.setcurPage('快车')}>
 		                <CellHeader>
 		                    <img src="newimg/1.png" alt=""/>

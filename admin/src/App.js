@@ -78,7 +78,7 @@ class App extends Component {
     render() {
         return (
             <Admin
-                title="中南出行管理后台"
+                title="旺旺约车管理后台"
                 restClient={restClient}
                 customReducers={{ theme: themeReducer }}
                 customSagas={sagas}

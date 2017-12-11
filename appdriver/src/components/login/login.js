@@ -59,8 +59,8 @@ export class PageForm extends Component {
                     </span>
                 </div>
                 <div className="loginlink">
-                    <a onClick={()=>{this.props.history.push("/findpwd")}} >没有账号？去注册</a>
-                    <a onClick={()=>{this.props.history.push("/register")}} >忘记密码</a>
+                    <a onClick={()=>{this.props.history.push("/register")}} >没有账号？去注册</a>
+                    <a onClick={()=>{this.props.history.push("/findpwd")}} >忘记密码</a>
                 </div>
             </Form>
         )
@@ -128,7 +128,7 @@ export class Page extends Component {
                         <img src="newimg/24.png" alt=''/>
                     </div>
                     <PageForm onClickLogin={this.onClickLogin}/>
-                    
+
                 </div>
             </div>
         )

@@ -57,6 +57,7 @@ class RegisterFillWizardForm extends Component {
     // PhotoJiandukaURL:String,//监督卡照片
     // PhotoServiceicenseURL:String,//服务资格证
     // CarrunPhotoldURL:String,//机动车行驶证
+    const { registertype } = this.props;
     const {
       idcard,
       bankname,
@@ -66,6 +67,8 @@ class RegisterFillWizardForm extends Component {
       PhotoJiandukaURL,
       PhotoServiceicenseURL,
       CarrunPhotoldURL,
+
+      OwnerName,
 
       City,
       VehicleNo,
@@ -86,6 +89,7 @@ class RegisterFillWizardForm extends Component {
       CarrunPhotoldURL,
       Platform_baseInfoDriver,
       Platform_baseInfoVehicle:{
+        OwnerName,
         City,
         VehicleNo,
         Seats,
@@ -93,7 +97,8 @@ class RegisterFillWizardForm extends Component {
         PhotoldURL,
         CheckState
       },
-      approvalstatus:'待审批'
+      approvalstatus:'待审批',
+      registertype
     };
     this.props.dispatch(fillrealnameprofile_request({data}));
   };

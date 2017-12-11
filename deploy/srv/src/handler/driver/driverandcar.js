@@ -93,6 +93,9 @@ let get_fnsavemycar = (retdoc,driveruserid)=>{
             fncallback(err,result);
           });
         }
+        else{
+          fncallback(err,null);
+        }
     });
   }
 }

@@ -2,12 +2,14 @@
     注册快车司机－基本信息
 */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import _ from "lodash";
 import { Field,reduxForm} from 'redux-form';
 import WeUI from 'react-weui';
 import 'weui';
 import 'react-weui/lib/react-weui.min.css';
 import '../../../../public/newcss/taxi.css';
-import _ from "lodash";
+
 const {
     Form:FormUI,
     } = WeUI;
@@ -261,22 +263,68 @@ class Page extends Component {
     }
 }
 
-export default reduxForm({
+let RegisterFillWizardForm = reduxForm({
   form: 'registerfillwizard',                 // <------ same form name
   destroyOnUnmount: false,        // <------ preserve form data
   forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
-  //asyncValidate,
-  //asyncBlurFields: ['bankaccount']
-  //DriverType DriverGender huji DriverNation DriverMaritalStatus
-  initialValues:{
-      DriverType: "C1",
-      DriverGender: "男",
-      huji: "江苏省",
-      DriverNation: "汉族",
-      DriverMaritalStatus: "未婚",
+})(Page);
+
+RegisterFillWizardForm = connect(
+  ({userlogin},props)=>{
+      return {
+        initialValues:{
+            avatarURL:_.get(userlogin,'avatarURL',''),
+            DriverName:_.get(userlogin,'Platform_baseInfoDriver.DriverName',''),
+            DriverPhone:_.get(userlogin,'Platform_baseInfoDriver.DriverPhone',''),
+            idcard:_.get(userlogin,'idcard',''),
+            bankaccount:_.get(userlogin,'bankaccount',''),
+            DriverType: _.get(userlogin,'Platform_baseInfoDriver.DriverType','C1'),
+            DriverGender: _.get(userlogin,'Platform_baseInfoDriver.DriverGender','男'),
+            huji: _.get(userlogin,'huji',''),
+            DriverAddress:_.get(userlogin,'Platform_baseInfoDriver.DriverAddress',''),
+            DriverNation: _.get(userlogin,'Platform_baseInfoDriver.DriverNation','汉族'),
+            DriverMaritalStatus: _.get(userlogin,'Platform_baseInfoDriver.DriverMaritalStatus','未婚'),
+            EmergencyContactPhone:_.get(userlogin,'Platform_baseInfoDriver.EmergencyContactPhone',''),
+            EmergencyContactAddress:_.get(userlogin,'Platform_baseInfoDriver.EmergencyContactAddress',''),
+            CertificateN0:_.get(userlogin,'Platform_baseInfoDriver.CertificateN0',''),
+
+            OwnerName:_.get(userlogin,'Platform_baseInfoVehicle.OwnerName',''),
+            VehicleNo:_.get(userlogin,'Platform_baseInfoVehicle.VehicleNo',''),
+            Seats:_.get(userlogin,'Platform_baseInfoVehicle.Seats',''),
+            CheckState:_.get(userlogin,'Platform_baseInfoVehicle.CheckState','已审'),
+            Certificate:_.get(userlogin,'Platform_baseInfoVehicle.Certificate',''),
+
+            Licenseld:_.get(userlogin,'Platform_baseInfoDriver.Licenseld',''),
+            LicensePhotoldURL:_.get(userlogin,'Platform_baseInfoDriver.LicensePhotoldURL',''),
+            CarrunPhotoldURL:_.get(userlogin,'CarrunPhotoldURL',''),
+            PhotoandCarmanURL:_.get(userlogin,'PhotoandCarmanURL',''),
+
+        },
+      }
   }
-})(Page)
+)(RegisterFillWizardForm);
 
+export default RegisterFillWizardForm;
 
+// "Platform_baseInfoVehicle" : {
+//     "Certificate" : "1234",
+//     "Seats" : 15,
+//     "VehicleNo" : "苏A235"
+// },
+// "Platform_baseInfoDriver" : {
+//     "Address" : 213000,
+//     "CompanyId" : "58a30c05061d53264c182029",
+//     "LicensePhotoldURL" : "http://ynyj.com28.cn/uploader/6465ccf2-b850-4fd0-a931-f3a99791d0ba.jpeg",
+//     "Licenseld" : "123",
+//     "EmergencyContactAddress" : "是啊",
+//     "EmergencyContactPhone" : "15961125167",
+//     "DriverAddress" : "常州",
+//     "DriverPhone" : "15961125167",
+//     "DriverName" : "王小庆",
+//     "DriverMaritalStatus" : "未婚",
+//     "DriverNation" : "汉族",
+//     "DriverGender" : "男",
+//     "DriverType" : "C1"
+// },
 
 //bankname

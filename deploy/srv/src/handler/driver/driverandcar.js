@@ -82,7 +82,6 @@ let get_fnsavemycar = (retdoc,driveruserid)=>{
             _id:mycarid,
             creator:driveruserid,
             created_at:new Date(),
-            PhotoandCarmanURL:retdoc.PhotoandCarmanURL,//人车合影
             LicensePhotoldURL:retdoc.LicensePhotoldURL,//机动车驾驶证
             CarrunPhotoldURL:retdoc.CarrunPhotoldURL,//机动车行驶证
             Platform_baseInfoVehicleId:result._id,

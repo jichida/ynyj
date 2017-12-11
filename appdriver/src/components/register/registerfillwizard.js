@@ -28,6 +28,10 @@ import {
 
 class RegisterFillWizardForm extends Component {
 
+  componentWillMount () {//刚进页面，重置为第一页
+    this.props.dispatch(ui_registerfillwizard({curpage:0}));
+  }
+
   nextPage = ()=> {
     this.props.dispatch(ui_registerfillwizard({
       curpage:this.props.curpage+1
@@ -59,11 +63,12 @@ class RegisterFillWizardForm extends Component {
     // CarrunPhotoldURL:String,//机动车行驶证
     const { registertype } = this.props;
     const {
+      avatarURL,
       idcard,
       bankname,
       bankaccount,
       huji,
-      CarmanPhotoldURL,
+      PhotoandCarmanURL,
       PhotoJiandukaURL,
       PhotoServiceicenseURL,
       CarrunPhotoldURL,
@@ -83,7 +88,8 @@ class RegisterFillWizardForm extends Component {
       bankname,
       bankaccount,
       huji,
-      CarmanPhotoldURL,
+      avatarURL,
+      PhotoandCarmanURL,
       PhotoJiandukaURL,
       PhotoServiceicenseURL,
       CarrunPhotoldURL,

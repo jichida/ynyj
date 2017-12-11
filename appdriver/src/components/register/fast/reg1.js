@@ -243,7 +243,7 @@ class Page extends Component {
                           />
 
                         <Field
-                          name="CertificateN0"
+                          name="CertificateNo"
                           InputTit="网约出租车证件编号"
                           placeholder="请输入网约出租车证件编号"
                           type="text"
@@ -286,7 +286,7 @@ RegisterFillWizardForm = connect(
             DriverMaritalStatus: _.get(userlogin,'Platform_baseInfoDriver.DriverMaritalStatus','未婚'),
             EmergencyContactPhone:_.get(userlogin,'Platform_baseInfoDriver.EmergencyContactPhone',''),
             EmergencyContactAddress:_.get(userlogin,'Platform_baseInfoDriver.EmergencyContactAddress',''),
-            CertificateN0:_.get(userlogin,'Platform_baseInfoDriver.CertificateN0',''),
+            CertificateNo:_.get(userlogin,'Platform_baseInfoDriver.CertificateNo',''),
 
             OwnerName:_.get(userlogin,'Platform_baseInfoVehicle.OwnerName',''),
             VehicleNo:_.get(userlogin,'Platform_baseInfoVehicle.VehicleNo',''),

@@ -100,6 +100,7 @@ let getdatafromuser =(user)=>{
     username: user.username,
     userid:user._id,
     approvalstatus:user.approvalstatus,
+    approvalrejectseason:user.approvalrejectseason,
     registertype:user.registertype,
     idcard:user.idcard,//身份证号<---
     bankname:user.bankname,//银行名字<---

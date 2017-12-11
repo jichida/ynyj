@@ -64,7 +64,7 @@ export class PageForm extends Component {
                         component={ InputValidation }
                         validate={[ required,length4 ]}
                     />
-                    
+
 
                     <Sendauth primary action={this.onClickAuth} className="getyanzhen" />
                 </div>
@@ -127,7 +127,7 @@ export class Page extends Component {
     }
     //社交账号登陆
     loginwith=(v)=>{
-        console.log(`使用${v}登录`);
+        console.log(`使用${v}登录`);//
     }
     render(){
         return (

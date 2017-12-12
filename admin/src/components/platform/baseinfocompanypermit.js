@@ -18,7 +18,7 @@ import {
     TextInput,
     SimpleShowLayout,
     Edit as EditPage,
-    Show as ShowPage,
+    Create,
     SimpleForm
 } from 'admin-on-rest/lib/mui';
 import Chip from 'material-ui/Chip';
@@ -32,7 +32,7 @@ import {TextInputEx,DisabledInputEx,NumberInputEx} from '../controls/TextInputEx
 const BaseInfoCompanyPermitTitle = ({ record }) => <span>经营许可信息</span>;
 
  const BaseInfoCompanyPermitCreate = (props) => (
-    <EditPage {...props} title={<BaseInfoCompanyPermitTitle />}>
+    <Create {...props} title={<BaseInfoCompanyPermitTitle />}>
         <SimpleForm>
             <DisabledInputEx  label="公司名称" source="CompanyName" />
             <TextInputEx label="行政区划代码"  source="Address" />
@@ -46,7 +46,7 @@ const BaseInfoCompanyPermitTitle = ({ record }) => <span>经营许可信息</spa
             <DisabledInputEx label="状态"  source="State" />
             <DateField label="数据更新时间" source="UpdateTime" showTime />
         </SimpleForm>
-    </EditPage>
+    </Create>
 );
 
  const BaseInfoCompanyPermitEdit = (props) => (

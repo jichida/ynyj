@@ -10,8 +10,8 @@ const _ = require('lodash');
 let dbs = require('../db/index.js');
 
 let startadmincustom = (app)=>{
-  app.post('/adminapi/findone/:resourcename',(req,res)=>{
-    console.log("orderid:" + req.params.resourcename);
+  app.post('/findone/:resourcename',(req,res)=>{
+    console.log("findone:" + req.params.resourcename);
     let schmodel = dbs[req.params.resourcename];
     let dbModel = mongoose.model(schmodel.collectionname, schmodel.schema);
     dbModel.findOne({},(err,result)=>{

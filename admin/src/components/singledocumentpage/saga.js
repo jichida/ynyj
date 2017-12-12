@@ -17,7 +17,7 @@ export default function* singleDoucmentPageSaga() {
   yield takeLatest(FINDONE, function* (action) {
     const {payload} = action;
     try{
-      const url = `${config.restserverurl}/findone/${payload.resource}`;
+      const url = `${config.serverurl}/findone/${payload.resource}`;
       const options = {
         method:'POST',
       };

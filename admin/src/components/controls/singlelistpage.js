@@ -24,7 +24,7 @@ import _ from 'lodash';
 // 参见代码: src/mui/detail/Edit.js
 class Page extends Component {
 
-    componentDidMount() {
+    componentWillMount() {
       this.props.crudGetList(this.props.resource);
     }
     // componentWillReceiveProps (nextProps) {
@@ -40,11 +40,13 @@ class Page extends Component {
     // }
 
     render() {
-        console.log(this.props)
-        if(this.props.ids.length === 0){
-          return this.props.Create;
+        console.log(this.props);
+        const {isLoading,ids} = this.props;
+        if(ids.length === 0){
+          let Create = this.props.Create;
+          return <Create actions={null} {...this.props} hasShow={false} hasEdit={false} isLoading={isLoading} />
         }
-        const id = this.props.ids[0];
+        const id = ids[0];
         const {
             resource,
             location
@@ -65,7 +67,7 @@ class Page extends Component {
         }
 
         let Edit = this.props.Edit;
-        return <Edit {...editprops} />
+        return <Edit {...editprops} isLoading={isLoading}/>
     }
 }
 
@@ -73,7 +75,8 @@ class Page extends Component {
 const mapStateToProps = (state,props) => {
   const resourceState = state.admin.resources[props.resource];
   let page = {
-    ids:[]
+    ids:[],
+    isLoading: state.admin.loading > 0,
   };
   if(!!resourceState){
     page.ids = _.get(resourceState,'list.ids',[]);

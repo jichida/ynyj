@@ -14,6 +14,8 @@ import Menu from './Menu';
 import CustomRoutes from './routes';
 import translations from './i18n';
 import restClient from './restClient';
+import singledocumentpage from './components/singledocumentpage/reducer';
+
 
 import {PricelistList,PricelistCreate,PricelistEdit,PricelistShow} from './components/carprices/index.js';
 import {AboutlistList,AboutlistEdit,AboutlistCreate} from './components/abouts/index.js';
@@ -73,6 +75,7 @@ import {WithdrawcashlistList,WithdrawcashlistEdit} from './components/withdrawca
 import {UserdriverpincheCreate,UserdriverpincheEdit,UserdriverpincheList} from './components/userdriverpinche/index.js';
 import {UserriderloginlogList,UserdriverpincheloginlogList,UserdriverloginlogList} from './components/loginlog/index.js';
 
+
 class App extends Component {
 
     render() {
@@ -80,7 +83,7 @@ class App extends Component {
             <Admin
                 title="旺旺约车管理后台"
                 restClient={restClient}
-                customReducers={{ theme: themeReducer }}
+                customReducers={{ theme: themeReducer,singledocumentpage }}
                 customSagas={sagas}
                 customRoutes={CustomRoutes}
                 authClient={authClient}
@@ -90,7 +93,7 @@ class App extends Component {
                 locale="cn"
                 messages={translations}
             >
-            <Resource name="systemconfig" list={SystemconfigList} show={SystemconfigShow} edit={SystemconfigEdit} create={SystemconfigCreate} />
+            <Resource name="systemconfig" list={SystemconfigList} />
 
             <Resource name="carbrand" list={CarbrandlistList}  edit={CarbrandlistEdit} create={CarbrandlistCreate} remove={Delete} />
             <Resource name="carcolor" list={CarcolorlistList}  edit={CarcolorlistEdit} create={CarcolorlistCreate} remove={Delete} />

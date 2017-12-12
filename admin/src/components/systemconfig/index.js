@@ -27,7 +27,7 @@ import Chip from 'material-ui/Chip';
 import RichTextEditorInput from '../controls/richtoolbar.js';
 import {TextFieldSZ} from '../controls/tags';
 
-import ShowPageOne from '../controls/singlelistpage.js';
+import ShowPageOne from '../singledocumentpage/index.js';
 
 
 const SystemconfigTitle = ({ record }) => <span>系统设置</span>;
@@ -112,11 +112,10 @@ const SystemconfigCreateTitle = ({ record }) => {
    console.log(props);
    return (
       <ShowPageOne
-          Create = {<SystemconfigCreate actions={null} {...props}/>}
+          Create = {SystemconfigCreate}
           Edit = {SystemconfigEdit}
           {...props}
-          >
-       </ShowPageOne>);
+        />);
  }
 
 

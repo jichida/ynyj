@@ -8,24 +8,40 @@ import {
 } from './action';
 
 export default (previousState = {
-  isLoading:true,
-  isget:false,
-  record:{}
+  mapdata:{
+    'systemconfig':{
+      isLoading:true,
+      isget:false,
+      record:{}
+    }
+  }
 }, { type, payload }) => {
     if (type === FINDONE_LOADING) {
-        return {...previousState,isLoading:true,
-        isget:false,
-        record:{}};
+        let mapdata = {...previousState.mapdata};
+        mapdata[payload.resource] = {
+          isLoading:true,
+          isget:false,
+          record:{}
+        };
+        return {...previousState,mapdata};
     }
     else if (type === FINDONE_FAILURE) {
-        return {...previousState,isLoading:false,
+      let mapdata = {...previousState.mapdata};
+      mapdata[payload.resource] = {
+        isLoading:false,
         isget:false,
-        record:{}};
+        record:{}
+      };
+      return {...previousState,mapdata};
     }
     else if(type === FINDONE_SUCCESS) {
-          return {...previousState,isLoading:false,
-          isget:true,
-          record:payload};
+      let mapdata = {...previousState.mapdata};
+      mapdata[payload.resource] = {
+        isLoading:false,
+        isget:true,
+        record:payload.json
+      };
+      return {...previousState,mapdata};;
     }
     return previousState;
 }

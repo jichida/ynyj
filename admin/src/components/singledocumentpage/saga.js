@@ -15,18 +15,18 @@ import config from '../../env/config';
 export default function* singleDoucmentPageSaga() {
 
   yield takeLatest(FINDONE, function* (action) {
+    const {payload} = action;
     try{
-      const {payload} = action;
       const url = `${config.restserverurl}/findone/${payload.resource}`;
       const options = {
         method:'POST',
       };
-      yield put({type:FINDONE_LOADING,payload:{}});
+      yield put({type:FINDONE_LOADING,payload:{resource:payload.resource}});
       const {json} = yield call(fetchJson,url,options);
-      yield put({type:FINDONE_SUCCESS,payload:json});
+      yield put({type:FINDONE_SUCCESS,payload:{resource:payload.resource,json}});
     }
     catch(e){
-      yield put({type:FINDONE_FAILURE,payload:{}});
+      yield put({type:FINDONE_FAILURE,payload:{resource:payload.resource}});
     }
   });
 

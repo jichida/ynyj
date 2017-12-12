@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {findOneAction} from './action';
 import CircularProgress from 'material-ui/CircularProgress';
+import _ from 'lodash';
 
 class Page extends Component {
 
@@ -50,8 +51,15 @@ class Page extends Component {
 }
 
 
-const mapStateToProps = ({singledocumentpage}) => {
-  return {...singledocumentpage};
+const mapStateToProps = ({singledocumentpage},props) => {
+  const {mapdata} = singledocumentpage;
+  let dataobj = _.get(mapdata,props.resource,{
+    isLoading:true,
+    isget:false,
+    record:{}
+  });
+  console.log(`${props.resource}==>${JSON.stringify(dataobj)}`)
+  return {...dataobj};
 };
 
 

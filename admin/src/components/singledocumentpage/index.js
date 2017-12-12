@@ -15,27 +15,19 @@ class Page extends Component {
     renderCreate =()=>{
       const {isLoading,Create,...rest} = this.props;
       return (<Create actions={null} {...rest} hasShow={false} hasEdit={false} isLoading={isLoading} />);
-      // return cloneElement(Create, {
-      //   ...rest,
-      //   actions:null,
-      //   hasShow:false,
-      //   hasEdit:false,
-      //   isLoading});
     }
 
     renderEdit =()=>{
         const {record,isLoading,Edit,resource,location,...rest} = this.props;
         const defaultProps = {
-          data: record,
-          crudGetOne: () => {},
-          crudUpdate: () => {},
+          data: {...record,id:record._id},
           hasDelete: false,
-          id: record.id,
+          id: record._id,
           isLoading: false,
-          location: { pathname: '' },
-          params: {},
-          resource:resource,
-          translate: x => x,
+          location: { pathname: `${resource}/${record._id}` },
+          params: {id: record._id},
+          match:{params: {id: record._id}},
+          resource:resource
       };
       return (<Edit {...defaultProps} />);
       // return cloneElement(Edit, {

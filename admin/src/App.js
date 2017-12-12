@@ -21,7 +21,7 @@ import {PricelistList,PricelistCreate,PricelistEdit,PricelistShow} from './compo
 import {AboutlistList,AboutlistEdit,AboutlistCreate} from './components/abouts/index.js';
 import {BuscarpoolList,BuscarpoolCreate,BuscarpoolEdit,BuscarpoolShow} from './components/pinche/index';
 import {TourbusinfolistList,TourbusinfolistCreate,TourbusinfolistEdit,TourbusinfolistShow} from './components/tourbusinfos/index.js';
-import {SystemconfigList,SystemconfigShow,SystemconfigEdit,SystemconfigCreate} from './components/systemconfig/index.js';
+import {SystemconfigList} from './components/systemconfig/index.js';
 
 import {MycouponlistList,MycouponlistCreate,MycouponlistEdit,MycouponlistShow} from './components/mycoupons/index.js';
 import {OrderlistList,OrderlistEdit} from './components/orders/index.js';

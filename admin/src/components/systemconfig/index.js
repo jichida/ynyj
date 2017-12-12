@@ -119,4 +119,4 @@ const SystemconfigCreateTitle = ({ record }) => {
  }
 
 
-export {SystemconfigList,SystemconfigEdit,SystemconfigCreate};
+export {SystemconfigList};

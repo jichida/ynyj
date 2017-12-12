@@ -173,11 +173,17 @@ for(let keyname in dbs){
         else if(queryparam.type === GET_ONE){
           let dbModel = mongoose.model(schmodel.collectionname, schmodel.schema);
           dbModel.findById(preupdateddata.query._id,(err,result)=>{
-            result = result.toJSON();
-            postaction(actionname,schmodel.collectionname,result,(err,resultnew)=>{
-                console.log("GET_ONE result=>" + JSON.stringify(result));
-                res.status(200).json(result);
-            });
+            if(!err && !!result){
+              result = result.toJSON();
+              postaction(actionname,schmodel.collectionname,result,(err,resultnew)=>{
+                  console.log("GET_ONE result=>" + JSON.stringify(result));
+                  res.status(200).json(result);
+              });
+            }
+            else{
+              console.log(`GET_ONE cannt find ${preupdateddata.query._id}`);
+            }
+
           });
         }
         else if(queryparam.type === GET_MANY){

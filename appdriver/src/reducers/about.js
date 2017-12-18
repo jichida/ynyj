@@ -31,7 +31,7 @@ const initial = {
       title:'',
       desc:''
     },
-    'xinshourumen':{
+    'driveruserguide':{
       title:'',
       desc:''
     }

@@ -50,7 +50,8 @@ import {
     getnearestdrivers_result,
     serverpush_triprequest,
 
-
+    oauthbinduser_request,
+    md_oauthbinduser,
 
     insertorder_result,
     getpaysign_result,
@@ -104,6 +105,7 @@ import {
 
 //接收的对应关系
 exports.recvmessagetoresultpair = {
+  'oauthbinduser_result':md_oauthbinduser,
   'loginwithoauth_result':loginwithoauth_result,
   'pushrequesttodrivers_result':pushrequesttodrivers_result,
   'serverpush_userloginsuccess_notify':serverpush_userloginsuccess_notify,
@@ -153,6 +155,7 @@ exports.recvmessagetoresultpair = {
 
 //非验证发送接口
 exports.sendmessagefnsz = {
+  'oauthbinduser':`${oauthbinduser_request}`,
   'getnotifymessageone':`${getnotifymessageone_request}`,
   'getnotifymessage':`${getnotifymessage_request}`,
   'getabouthtml':`${getabouthtml_request}`,

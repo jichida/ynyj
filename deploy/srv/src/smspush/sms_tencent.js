@@ -40,7 +40,7 @@ let sendsms= (ctxtype,tel,templId,params,callbackfn)=> {
 
 const sendsmstouser = (tel,reason,authcode,callbackfn)=>{
     const textobj = {
-        'rider_binduser':67543,//`您正在绑定用户，验证码是：${authcode}，请勿泄漏。`,
+        'rider_binduser':67615,//`您正在绑定用户，验证码是：${authcode}，请勿泄漏。`,
         'rider_login':67412,//`您正在注册(登录)旺旺约车乘客端账号，验证码是：${authcode}，请勿泄漏。`,//【中南出行】
         'driver_findpwd':67425,//`您正在找回旺旺约车司机密码，验证码是：${authcode}，请勿泄漏。`,
         'driver_withdraw':67426,//`您正在申请提现，验证码是：${authcode}，请勿泄漏。`,

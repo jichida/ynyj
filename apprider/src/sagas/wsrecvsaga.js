@@ -44,6 +44,11 @@ import {
   md_starttriprequestorder_result,
   pushrequesttodrivers_request,
 
+  oauthbinduser_result,
+  wait_oauthbinduser_result,
+  md_oauthbinduser,
+
+
   loginwithoauth_result
 } from '../actions';
 import { push,replace } from 'react-router-redux';
@@ -64,6 +69,11 @@ const waitfnsz = [
     getrechargerecords_result,
     wait_getrechargerecords_result,
     `${md_getrechargerecords}`,
+  ],
+  [
+    oauthbinduser_result,
+    wait_oauthbinduser_result,
+    `${md_oauthbinduser}`,
   ],
   [
     getmytriporders_result,

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Input, List, Radio, Button, Icon, Image, Checkbox,Label} from 'semantic-ui-react';
 import { Field,Fields, reduxForm,Form  } from 'redux-form';
 import { connect } from 'react-redux';
-import {sendauth_request} from '../../actions/index.js';
+import {loginsendauth_request} from '../../actions/index.js';
 import {oauthbinduser} from '../../actions/sagacallback.js';
 import Sendauth from '../tools/sendauth.js';
 
@@ -25,7 +25,7 @@ let renderBinduserForm = (fields)=> {
         const phone =  !!name && !(name.match(/\D/g)||name.length !== 11||!name.match(/^1/));
         console.log(phone);
         if(phone){
-            fields.dispatch(sendauth_request({username: name,reason:'binduser'}));
+            fields.dispatch(loginsendauth_request({phonenumber: name,reason:'binduser'}));
         }
         callback(phone);
     }

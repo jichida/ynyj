@@ -66,7 +66,7 @@ const UserdriverlistEdit = (props) => {
               <SelectInput  label="注册类型"  source="registertype" choices={[
                   { id: '出租车', name: '出租车' },
                   { id: '快车', name: '快车' },
-                  { id: '代驾', name: '代驾' },
+                  // { id: '代驾', name: '代驾' },
               ]} />
               <DateField label="注册时间" source="created_at"  showTime/>
               <DateField label="上次登录时间" source="updated_at"  showTime/>

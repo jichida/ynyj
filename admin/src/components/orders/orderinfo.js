@@ -12,10 +12,10 @@ import {
 export const Orderinfo = (props) => {
     let {label,record,source,...rest} = props;
     const triptypemap = {
-        '代驾':'daijia',
+        // '代驾':'daijia',
         '出租车':'chuzuche',
         '快车':'kuaiche',
-        '旅游大巴':'lvyoudaba',
+        // '旅游大巴':'lvyoudaba',
         '拼车':'pinche',
     };
     let label2 = `${label}.${triptypemap[record.triptype]}`;

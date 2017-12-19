@@ -96,12 +96,15 @@ import {
     serverpush_userloginsuccess_notify,
     queryorder,
 
-    pushrequesttodrivers_result
+    pushrequesttodrivers_result,
+    loginwithoauth_request,
+    loginwithoauth_result,
 } from '../actions';
 
 
 //接收的对应关系
 exports.recvmessagetoresultpair = {
+  'loginwithoauth_result':loginwithoauth_result,
   'pushrequesttodrivers_result':pushrequesttodrivers_result,
   'serverpush_userloginsuccess_notify':serverpush_userloginsuccess_notify,
   'getorderdetail_result':getorderdetail_result,
@@ -156,6 +159,7 @@ exports.sendmessagefnsz = {
   'loginsendauth':`${loginsendauth_request}`,
   'loginwithauth':`${loginwithauth_request}`,
   'loginwithtoken':`${loginwithtoken_request}`,
+  'loginwithoauth':`${loginwithoauth_request}`,
   'getbuscarpool':`${getbuscarpool_request}`,
 
   'getnearestdrivers':`${getnearestdrivers_request}`,

@@ -42,7 +42,9 @@ import {
 
   getorderdetail_result,
   md_starttriprequestorder_result,
-  pushrequesttodrivers_request
+  pushrequesttodrivers_request,
+
+  loginwithoauth_result
 } from '../actions';
 import { push,replace } from 'react-router-redux';
 import _ from 'lodash';
@@ -176,5 +178,14 @@ export function* wsrecvsagaflow() {
       let {payload:result} = action;
       yield put(canceltriprequestorder_result(result));
       yield put(triporder_updateone(result.triporder));
+  });
+
+  yield takeEvery(`${loginwithoauth_result}`, function*(action) {
+    const {payload:{bindtype,openid}} = action;
+    if(!!bindtype && !!openid){
+      if(bindtype !== '' && openid !== ''){
+        yield put(push('/userbind'));
+      }
+    }
   });
 }

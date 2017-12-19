@@ -15,6 +15,8 @@ import {
     InputValidation,
     length4
     } from "../tools/formvalidation"
+import {loginQQ,loginWx} from '../../env/login.js';
+import {loginwithoauth_result,loginwithoauth_request} from '../../actions';
 
 export class PageForm extends Component {
 
@@ -126,11 +128,28 @@ export class Page extends Component {
         this.props.dispatch(loginwithauth_request(payload));
     }
     //社交账号登陆
-    loginwith=(v)=>{
-        console.log(`使用${v}登录`);//
-    }
+    // loginwith=(v)=>{
+    //     console.log(`使用${v}登录`);//
+    // }
+
     render(){
-        return (
+      const {isweixininstalled} = this.props;
+      let loginwithqq = ()=>{
+          loginQQ((result)=>{
+              if(result.code === '0'){
+                this.props.dispatch(loginwithoauth_request({bindtype:'qq',openid:result.openId}));
+              }
+          });
+      }
+      let loginwithwechat = ()=>{
+          loginWx((result)=>{
+            if(result.code === '0'){
+              this.props.dispatch(loginwithoauth_request({bindtype:'weixin',openid:result.openid}));
+            }
+          });
+
+      }
+      return (
             <div className="loginPage AppPage">
                 <NavBar back={true} title="快速登录" />
                 <div className="content">
@@ -141,8 +160,8 @@ export class Page extends Component {
                     <div className="moreLogin">
                         <img src={Img_More} />
                         <div>
-                            <a onClick={this.loginwith.bind(this,"qq")}><img src={Img_QQ} /></a>
-                            <a onClick={this.loginwith.bind(this,"wx")}><img src={Img_Wexin} /></a>
+                            <a onClick={loginwithqq}><img src={Img_QQ} /></a>
+                            <a onClick={loginwithwechat}><img src={Img_Wexin} /></a>
                         </div>
                     </div>
                 </div>

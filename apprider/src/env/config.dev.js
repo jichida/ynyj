@@ -1,4 +1,4 @@
-let islocalhost = false;
+let islocalhost = true;
 let config = {
     serverurl:islocalhost?'http://localhost:3006':'http://ynyj.com28.cn',
     requesttimeout:5000,

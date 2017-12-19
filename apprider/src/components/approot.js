@@ -37,6 +37,11 @@ import Seladdressbook from './emerygencycontact/Telephone/Seladdressbook.js';
 import Tourbusfillform from "./tourbus/userinfo";
 import MessageCenter from './messagecenter/messagecenter.js';
 import MessageDetail from './messagecenter/messagedetail.js';
+
+//一键登录绑定用户
+import Userbind from './login/userbind.js';
+
+
 import {requireAuthentication} from './requireauthentication';
 
 import PincheQuery from './carpool/pinchequery.js';
@@ -69,6 +74,7 @@ class AppRoot extends React.Component {
                     <Route exact path="/" component={()=>(<Redirect to="/index/chuzuche"/>)}/>
                     <Route path="/index/:keyname" component={App}/>
                     <Route path="/login" component={Login}/>
+                    <Route path="/userbind" component={Userbind} />
                     <Route path="/about/:keyname" component={About}/>
                     <Route path="/systemsetting" component={SystemSetting}/>
                     <Route path="/rechargepay/:triporderid" component={requireAuthentication(Rechargepay)}/>

@@ -51,6 +51,8 @@ const sendsmstouser = (tel,reason,authcode,callbackfn)=>{
       }
     if(!!textobj[reason]){
       if(config.issmsdebug){
+        console.log(`sendsmstouser authcode==>${authcode}`);
+
         callbackfn(null,{result:true,msg:textobj[reason]});
         return;
       }

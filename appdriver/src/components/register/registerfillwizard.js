@@ -135,16 +135,7 @@ class RegisterFillWizardForm extends Component {
 		                </CellBody>
 		                <CellFooter />
 		            </Cell>
-		          <Cell access onClick={()=>this.setcurPage('代驾')}>
-		                <CellHeader>
-		                    <img src="newimg/3.png"  alt=""/>
-		                </CellHeader>
-		                <CellBody>
-		                    <div className="tit">我要成为代驾司机</div>
-		                    <div className="con">做点兼职赚点钱...</div>
-		                </CellBody>
-		                <CellFooter />
-		            </Cell>
+
 		        </Cells>
     		</div>
     	)

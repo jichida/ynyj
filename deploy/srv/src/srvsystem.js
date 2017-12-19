@@ -90,7 +90,8 @@ let setconfigfile = ()=>{
 
     let dbModelCompany = DBPlatformModels.Platform_baseInfoCompanyModel;
     dbModelCompany.findOne({},(err,result)=>{
-        if(!err && result){
+        if(!err && !!result){
+          console.log(`dbModelCompany===>${JSON.stringify(result)}`)
           config.setcompanyandaddress(result.CompanyId,result.Address);
         }
     });

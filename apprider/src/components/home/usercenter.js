@@ -110,7 +110,7 @@ class Page extends Component {
                             <CellFooter />
                         </Cell>
                         }
-                        
+
                         <Cell access onClick={this.onClickItem.bind(this,'/systemsetting')}>
                             <CellHeader>
                                 <img src="newimg/n7.png" alt=""/>
@@ -125,7 +125,7 @@ class Page extends Component {
                                 <img src="newimg/n8.png" alt=""/>
                             </CellHeader>
                             <CellBody>
-                                司机入住
+                                司机入驻
                             </CellBody>
                             <CellFooter />
                         </Cell>

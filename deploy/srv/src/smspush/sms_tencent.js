@@ -12,19 +12,22 @@ const appkey_driver = "cd7b2c0f7d67d040cf4583e7d47683f7";
 
 let sendsms= (ctxtype,tel,templId,params,callbackfn)=> {
   let ssender;
+  let sign = '';
   if(ctxtype === 'rider'){
     const qcloudsms_rider = QcloudSms(appid_rider, appkey_rider);
     ssender = qcloudsms_rider.SmsSingleSender();
+    // sign = '32103';
   }
   else{
     const qcloudsms_driver = QcloudSms(appid_driver, appkey_driver);
     ssender = qcloudsms_driver.SmsSingleSender();
+    // sign = '32107';
   }
-  console.log(`sendsms templId===>${templId},params==>${JSON.stringify(params)}`);
+  console.log(`sendsms appid==>${ssender.appid},sign==>${sign},templId===>${templId},params==>${JSON.stringify(params)}`);
 
-  ssender.sendWithParam("86",tel,
+  ssender.sendWithParam(86,tel,
     templId,
-    params,"", "", "", (err, res, resData)=>{
+    params,sign, "", "", (err, res, resData)=>{
       if (!!err){
         callbackfn(err,null);
       }
@@ -55,7 +58,7 @@ const sendsmstouser = (tel,reason,authcode,callbackfn)=>{
       if(reason !== 'driver_isapprovaledtrue' && reason !== 'driver_isapprovaledfalse'){
         params = [authcode]
       }
-      sendsms(_.startsWith('rider_')?'rider':'driver',
+      sendsms(_.startsWith(reason,'rider_')?'rider':'driver',
         tel,textobj[reason],params,(err,result)=>{
         if(!err){
           callbackfn(err,{result,msg:'验证码发送成功'});

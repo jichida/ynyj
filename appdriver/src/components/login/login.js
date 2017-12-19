@@ -22,6 +22,7 @@ export class PageForm extends Component {
                 className="loginForm formStyle1"
                 onSubmit={handleSubmit(onClickLogin)}
                 >
+
                 <div className="li" >
                     <span className="icon">
                         <img src="newimg/25.png" alt='' />

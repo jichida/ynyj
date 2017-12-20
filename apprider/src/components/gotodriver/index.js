@@ -6,13 +6,21 @@ import NavBar from '../tools/nav.js';
 
 export class Page extends React.Component {
     componentWillMount () {
-        
+
     }
     onClickBack =()=>{
         this.props.history.goBack();
     }
     download=(v)=>{
-        console.log(`download ${v}`);
+        const {downloadurl_android,downloadurl_ios} = this.props;
+        let url;
+        if(v === 'android'){
+          url = downloadurl_android;
+        }
+        else if(v === 'ios'){
+          url = downloadurl_ios;
+        }
+        console.log(`download url ${url}`);
     }
     render() {
         return (
@@ -29,5 +37,8 @@ export class Page extends React.Component {
         );
     }
 }
-export default connect()(Page);
 
+const data =  ({app:{downloadurl_android,downloadurl_ios}}) =>{
+    return {downloadurl_android,downloadurl_ios};
+};
+export default connect(data)(Page);

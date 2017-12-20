@@ -15,8 +15,8 @@ exports.getsystemconfig = (socket,actiondata,ctx)=>{
                     servicephonenumber:systemconfig.servicephonenumber,
                     hotcity:city.gethotcitys(systemconfig.hotcity),
                     pinchecitylist:systemconfig.pinchecitylist,
-                    daijialeastbalance:systemconfig.daijialeastbalance,
-                    daijiacancelprice:systemconfig.daijiacancelprice,
+                    downloadurl_android:systemconfig.downloadurl_android,
+                    downloadurl_ios:systemconfig.downloadurl_ios,
                 };
             }
             else if(ctx.usertype === 'driver'){

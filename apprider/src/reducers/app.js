@@ -18,6 +18,8 @@ const initial = {
     servicephonenumber:'',
     daijiacancelprice:50,
     daijialeastbalance:50,
+    downloadurl_android:null,
+    downloadurl_ios:null
   },
 };
 

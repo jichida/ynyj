@@ -79,7 +79,7 @@ let setconfigfile = ()=>{
     //设置运价信息
     let dbModel = DBModels.FareTypeModel;
     dbModel.find({},(err,list)=>{
-      if(!err && list){
+      if(!err && !!list){
         let faretypemap = {};
         _.map(list,(record)=>{
           faretypemap[record.registertype] = record._id;

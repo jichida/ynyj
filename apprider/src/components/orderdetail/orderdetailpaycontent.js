@@ -53,7 +53,7 @@ export default class Page extends Component{
         }
 
         let isshowpaycontent = true;
-        if(triptype === '出租车' || triptype === '快车' || triptype === '代驾' ){
+        if(triptype === '出租车' || triptype === '快车' || triptype === '网约车' ){
           isshowpaycontent = orderinfo.orderstatus !== '已取消';
         }
 

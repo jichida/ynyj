@@ -84,7 +84,7 @@ class Page extends Component {
         return (
             <div className="outcarPage AppPage">
                 <NavBar back={false} title="旺旺约车" />
-                
+
                 <div className="mapcontent">
                     <MapGaode ref='mapgaode' height={window.innerHeight-116} />
                     <div className="outcarControl">
@@ -135,6 +135,9 @@ const mapStateToProps = ({appui:{outcarexpand,pageregistertype:uiregistertype},o
   let registertypeoptions =[];
   if(userregistertype === '快车'){
     registertypeoptions= ['快车','代驾'];
+  }
+  else if(userregistertype === '网约车'){
+    registertypeoptions= ['网约车','代驾'];
   }
   else if(userregistertype === '出租车'){
     registertypeoptions= ['出租车','代驾'];

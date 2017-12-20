@@ -3,7 +3,7 @@ let globalpayparam = {
     'alipay':
      {
       partner:'2088821585680935',
-      seller_id:'15894448379@139.com',
+      seller_id:'15894448379@163.com',
       notify_url:config.rooturl+'/pay/alipay',//'http://www.guorouwang.com/wap_android5/pay/notify_url.jsp',
       service:'mobile.securitypay.pay',
       payment_type:'1',

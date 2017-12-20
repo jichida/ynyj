@@ -2,8 +2,8 @@ const config = require('../config.js');
 let globalpayparam = {
     'alipay':
      {
-      partner:'2088621524129196',
-      seller_id:'1307868760@qq.com',
+      partner:'2017120800465012',
+      seller_id:'15894448379@139.com',
       notify_url:config.rooturl+'/pay/alipay',//'http://www.guorouwang.com/wap_android5/pay/notify_url.jsp',
       service:'mobile.securitypay.pay',
       payment_type:'1',

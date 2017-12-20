@@ -69,7 +69,7 @@ const OrderFilter = (props) => (
             // { id: '旅游大巴', name: '旅游大巴' },
             { id: '快车', name: '快车' },
             { id: '出租车', name: '出租车' },
-            // { id: '代驾', name: '代驾' },
+            { id: '网约车', name: '网约车' },
             { id: '拼车', name: '拼车' },
         ]} />
        <ReferenceInput label="乘客信息" source="rideruserid" reference="userrider" addLabel={false}>

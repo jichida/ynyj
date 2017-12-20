@@ -115,6 +115,16 @@ class RegisterFillWizardForm extends Component {
     		<div className="registerPage register1Page  AppPage">
           <NavBar back={true} title="开始成为司机" />
 				      <Cells>
+                <Cell access onClick={()=>this.setcurPage('网约车')}>
+                    <CellHeader>
+                        <img src="newimg/1.png" alt=""/>
+                    </CellHeader>
+                    <CellBody>
+                        <div className="tit">我要成为网约车司机</div>
+                        <div className="con">做点兼职赚点钱...</div>
+                    </CellBody>
+                    <CellFooter />
+                </Cell>
 		            <Cell access onClick={()=>this.setcurPage('快车')}>
 		                <CellHeader>
 		                    <img src="newimg/1.png" alt=""/>
@@ -169,12 +179,15 @@ class RegisterFillWizardForm extends Component {
         return (<TaxiRegPage3  previousPage={this.previousPage}  onSubmit={this.onSubmit}/>);
       }
     }
-    if(registertype === '代驾'){
+    if(registertype === '网约车'){
       if(curpage === 1){
-        return (<ReplaceRegPage1 previousPage={this.previousPage}  onSubmit={this.nextPage}/>);
+        return (<FastRegPage1  previousPage={this.previousPage}  onSubmit={this.nextPage}/>);
       }
       if(curpage === 2){
-        return (<ReplaceRegPage2  previousPage={this.previousPage}  onSubmit={this.onSubmit}/>);
+        return (<FastRegPage2  previousPage={this.previousPage}  onSubmit={this.nextPage}/>);
+      }
+      if(curpage === 3){
+        return (<FastRegPage3  previousPage={this.previousPage}  onSubmit={this.onSubmit}/>);
       }
     }
 

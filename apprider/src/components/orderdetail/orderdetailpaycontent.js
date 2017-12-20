@@ -23,7 +23,7 @@ export default class Page extends Component{
         } = orderinfo;
 
         let paycontentlist  = [];
-        if(triptype === '出租车' || triptype === '快车' || triptype === '代驾' ){
+        if(triptype === '出租车' || triptype === '快车' || triptype === '网约车' ){
             const {realtimepricedetail} = orderinfo;
             if(!!realtimepricedetail && orderprice > 0){
               let {pricelistdetail} = realtimepricedetail;

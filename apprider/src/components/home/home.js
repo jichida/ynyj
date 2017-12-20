@@ -39,7 +39,7 @@ export class AppIndex extends React.Component {
       });
 
       let currentkeyname = this.props.match.params.keyname;
-      if(currentkeyname==='chuzuche' || currentkeyname==='kuaiche' || currentkeyname==='daijia'){
+      if(currentkeyname==='chuzuche' || currentkeyname==='kuaiche' || currentkeyname==='wangyueche'){
           this.props.dispatch(ui_setindexmapvisiable(true));
 
           if(currentkeyname === 'chuzuche'){
@@ -48,8 +48,8 @@ export class AppIndex extends React.Component {
           else if(currentkeyname === 'kuaiche'){
               this.props.dispatch(carmap_settriptype('快车'));
           }
-          else if(currentkeyname === 'daijia'){
-              this.props.dispatch(carmap_settriptype('代驾'));
+          else if(currentkeyname === 'wangyueche'){
+              this.props.dispatch(carmap_settriptype('网约车'));
           }
       }
       else{
@@ -96,7 +96,7 @@ export class AppIndex extends React.Component {
         if(nextprop.match.params.keyname !== this.props.match.params.keyname){
             const {match} = nextprop;
             let currentkeyname = match.params.keyname;
-            if(currentkeyname==='chuzuche' || currentkeyname==='kuaiche' || currentkeyname==='daijia'){
+            if(currentkeyname==='chuzuche' || currentkeyname==='kuaiche' || currentkeyname==='wangyueche'){
                 this.props.dispatch(ui_setindexmapvisiable(true));
                 if(currentkeyname === 'chuzuche'){
                     this.props.dispatch(carmap_settriptype('出租车'));
@@ -104,8 +104,8 @@ export class AppIndex extends React.Component {
                 else if(currentkeyname === 'kuaiche'){
                     this.props.dispatch(carmap_settriptype('快车'));
                 }
-                else if(currentkeyname === 'daijia'){
-                    this.props.dispatch(carmap_settriptype('代驾'));
+                else if(currentkeyname === 'wangyueche'){
+                    this.props.dispatch(carmap_settriptype('网约车'));
                 }
             }
             else{

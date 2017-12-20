@@ -71,7 +71,7 @@ class AppRoot extends React.Component {
             <div className="AppContainer" style={{minHeight:window.innerHeight+"px"}}>
                 <WeuiTool />
                 <Switch>
-                    <Route exact path="/" component={()=>(<Redirect to="/index/chuzuche"/>)}/>
+                    <Route exact path="/" component={()=>(<Redirect to="/index/wangyueche"/>)}/>
                     <Route path="/index/:keyname" component={App}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/userbind" component={Userbind} />

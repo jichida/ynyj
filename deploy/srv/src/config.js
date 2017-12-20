@@ -10,6 +10,7 @@ let config =  {
   publishdiradmin:'../../dist/admin',
   uploaddir:'../../dist/uploader',
   uploadurl:'/uploader',
+  logdir:'../../dist/log',
 
   CompanyId:'58a30c05061d53264c182029',
   Address:213000,

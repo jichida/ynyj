@@ -118,7 +118,7 @@ export class Page extends Component {
                 <div className="content">
                     <div className="logo">
                         <span className="tit">旺旺约车</span>
-                        <span className="tips">司机端</span>
+                        <span className="tips">拼车司机端</span>
                     </div>
                     <PageForm onClickLogin={this.onClickLogin}/>
                 </div>

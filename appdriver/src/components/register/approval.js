@@ -16,7 +16,15 @@ class Page extends Component {
         const {approvalstatus,approvalrejectseason,history} = this.props;
         return (
             <div className="examinePage AppPage">
-                <NavBar back={true} title="审核" />
+                <NavBar back={false} title="审核"  leftnav={[
+                    {
+                      type:"action",
+                      action : ()=>{
+                        this.props.history.replace('/');
+                      },
+                      text:"首页"
+                    }
+                  ]}/>
 
                 <div className="list">
                     {approvalstatus === '已审核' &&

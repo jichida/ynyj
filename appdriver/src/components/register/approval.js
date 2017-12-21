@@ -15,7 +15,7 @@ class Page extends Component {
     render() {
         const {approvalstatus,approvalrejectseason,history} = this.props;
         return (
-            <div className="examinePage AppPage">
+            <div className="examinePage approvalPage AppPage">
                 <NavBar back={false} title="审核"  leftnav={[
                     {
                       type:"action",

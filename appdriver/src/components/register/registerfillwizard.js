@@ -112,7 +112,7 @@ class RegisterFillWizardForm extends Component {
 
   renderpage0 =()=> {
         return (
-    		<div className="registerPage register1Page  AppPage">
+    		<div className="registerPage approvalPage register1Page  AppPage">
           <NavBar back={false} title="开始成为司机"  leftnav={[
               {
                 type:"action",

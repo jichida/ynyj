@@ -43,6 +43,8 @@ UserDriverPincheLoginLogSchema.plugin(mongoosePaginate);
 //乘客表//常用地址管理
 let UserRiderSchema = new Schema({
     username:String,
+    openidqq: String,
+    openidweixin: String,
     created_at:{ type: Date, default:new Date()},
     updated_at:Date,
     truename:String,

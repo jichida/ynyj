@@ -121,7 +121,7 @@ class Page extends Component {
 			                </CellBody>
 			                <CellFooter />
 			            </Cell>
-			            <Cell access onClick={()=>{this.onClickItem('/about/xinshourumen')}}>
+			            <Cell access onClick={()=>{this.onClickItem('/about/driveruserguide')}}>
 			                <CellHeader>
 			                    <img src="newimg/11.png"  alt=""/>
 			                </CellHeader>

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import renderHTML from 'react-render-html';
 import {getabouthtml_request} from '../../actions';
 import NavBar from '../tools/nav.js';
+import _ from 'lodash';
+
 export class Page extends React.Component {
     componentWillMount () {
         this.props.dispatch(getabouthtml_request({
@@ -13,12 +15,13 @@ export class Page extends React.Component {
         this.props.history.goBack();
     }
     render() {
-        const title = this.props[this.props.match.params.keyname].title || "关于我们";
+      let title = _.get(this.props[this.props.match.params.keyname],'title','');
+      let desc = _.get(this.props[this.props.match.params.keyname],'desc','');
         return (
             <div className="settingPage AppPage">
                 <NavBar back={true} title={title} />
                 <div className="list">
-                    {renderHTML(this.props[this.props.match.params.keyname].desc || "关于我们")}
+                    {renderHTML(desc)}
                 </div>
             </div>
         );
@@ -28,4 +31,3 @@ const mapStateToProps = ({about}) => {
   return about;
 }
 export default connect(mapStateToProps)(Page);
-

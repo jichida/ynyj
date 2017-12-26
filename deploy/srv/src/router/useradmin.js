@@ -3,7 +3,6 @@ let mongoose     = require('mongoose');
 const config = require('../config.js');
 const _  = require('lodash');
 const jwt = require('jsonwebtoken');
-const moment  = require('moment');
 let dbs = require('../db/index.js');
 let middlewareauth = require('./middlewareauth.js');
 const platformaction = require('./action.js');
@@ -213,11 +212,15 @@ for(let keyname in dbs){
           let dbModel = mongoose.model(schmodel.collectionname, schmodel.schema);
           let entity = new dbModel(preupdateddata.data);
           entity.save((err,result)=>{
-
+            if(!err && !!result){
             postaction(actionname,schmodel.collectionname,result,(err,resultnew)=>{
                 console.log("CREATE result=>" + JSON.stringify(result));
                 res.status(200).json(result);
             });
+            }
+            else{
+              console.log(err);
+            }
           });
         }
         else if(queryparam.type === UPDATE){

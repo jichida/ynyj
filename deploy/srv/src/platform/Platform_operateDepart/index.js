@@ -26,8 +26,8 @@ const jwt = require('jsonwebtoken');
 const config = require('../../config.js');
 let winston = require('../../log/log.js');
 const platformaction = require('../platformaction.js');
-const util = require('../util');//gettimeformat
 let dbplatform = require('../../db/modelsplatform.js');
+const moment = require('moment');
 //到达出发地
 exports.insertOperateDepart  = ({triprequest,triporder})=> {
     // let datestart = triprequest.getindate_at.getTime();
@@ -43,7 +43,7 @@ exports.insertOperateDepart  = ({triprequest,triporder})=> {
         DepLongitude:triporder.getinlocation[0],
         DepLatitude:triporder.getinlocation[1],
         Encrypt:1,//1:GCJ-02 测绘局标准
-        DepTime:triporder.getindate_at,
+        DepTime:moment(triporder.getindate_at).format('YYYY-MM-DD HH:mm:ss'),
         WaitMile:0,
         WaitTime:0
     };

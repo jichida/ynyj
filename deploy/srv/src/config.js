@@ -1,5 +1,6 @@
 
 let config =  {
+  platformserverurl:'http://127.0.0.1:8080',
   secretkey:'ynyjkey',
   listenport:process.env.listenport||3006,
   rooturl:process.env.rooturl || 'http://ynyj.com28.cn',

@@ -1,5 +1,6 @@
 let DBModels = require('../../db/models.js');
 let winston = require('../../log/log.js');
+const moment = require('moment');
 
 const Ajv = require('ajv');
 const ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
@@ -33,7 +34,7 @@ exports.withdrawcashapplyaddone = (socket,payloaddata,ctx,userModel,resultstring
           if(user.balance > payloaddata.cashmoney && payloaddata.cashmoney > 0){
                   let entitydata = payloaddata;
                   entitydata.creator = ctx.userid;
-                  entitydata.created_at = new Date();
+                  entitydata.created_at = moment().format('YYYY-MM-DD HH:mm:ss');
                   entitydata.status = '未验证';
 
                   let dbModel = DBModels.WithdrawcashapplyModel;
@@ -106,7 +107,7 @@ exports.withdrawcashapplyauth = (socket,payloaddata,ctx,userModel,authexptime,gl
                              feebonus,
                              orderprice:-updateditem.cashmoney,
                              srctype:'withdrawcash_ing',
-                             created_at:new Date()
+                             created_at:moment().format('YYYY-MM-DD HH:mm:ss')
              });
              entityuser.save((err,rechargerecord2)=>{//保存该用户2值记录
                  if(!err && rechargerecord2){

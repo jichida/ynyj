@@ -120,7 +120,7 @@ class Page extends Component {
                             </CellBody>
                             <CellFooter />
                         </Cell>
-                        <Cell access onClick={this.onClickItem.bind(this,'/gotodriver')}>
+                        {/* <Cell access onClick={this.onClickItem.bind(this,'/gotodriver')}>
                             <CellHeader>
                                 <img src="newimg/n8.png" alt=""/>
                             </CellHeader>
@@ -128,7 +128,7 @@ class Page extends Component {
                                 司机入驻
                             </CellBody>
                             <CellFooter />
-                        </Cell>
+                        </Cell> */}
                         <Cell access onClick={this.onClickItem.bind(this,'/about/rideraboutus')}>
                             <CellHeader>
                                 <img src="newimg/n9.png" alt=""/>

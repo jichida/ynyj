@@ -4,6 +4,7 @@ import "../../../public/newcss/caroverlay.css";
 import StarRatingComponent from 'react-star-rating-component';
 
 import {jsCallPhone} from '../../env/callphone.js';
+import {playaudio} from '../../env/audio';
 
 let PageDriverHead =(props)=>{
   const {
@@ -102,18 +103,21 @@ export class Page extends React.Component {
             };
 
             if(requestobj.requeststatus === '请求中'){
+              playaudio('audio1');
               return getrequestingcomponents();
             }
             if(requestobj.requeststatus === '已接单'){
               return getrequestoverwaitingpickup();
             }
             if(requestobj.requeststatus === '待上车'){
+              playaudio('audio2');
               return getrequestoverwaitinggetin();
             }
             if(requestobj.requeststatus === '行程中'){
               return gettripping();
             }
             if(requestobj.requeststatus === '行程完成'){
+              playaudio('audio3');
             }
         }
         return (<div>请稍后</div>);

@@ -271,7 +271,7 @@
 
      export const playaudio = (name)=>{
        const json = {
-            "voiceName":`{name}.mp3`
+            "voiceName":`${name}.mp3`
        };
        if(!!window.xview.xviewVoicePrompt){
          window.xview.xviewVoicePrompt(JSON.stringify(json));

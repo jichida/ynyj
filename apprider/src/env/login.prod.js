@@ -41,7 +41,7 @@ export const loginQQ = (fncallback)=>{
           if(typeof result === 'string'){
               result = JSON.parse(result);
           }
-          //alert(JSON.stringify(result));
+          alert(`loginToWeixin返回参数==>${JSON.stringify(result)}`);
           result.openid = result.openid || result.openId ;
           fncallback(result);
         });

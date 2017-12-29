@@ -107,10 +107,10 @@ export class Page extends React.Component {
               return getrequestingcomponents();
             }
             if(requestobj.requeststatus === '已接单'){
+              playaudio('audio2');
               return getrequestoverwaitingpickup();
             }
             if(requestobj.requeststatus === '待上车'){
-              playaudio('audio2');
               return getrequestoverwaitinggetin();
             }
             if(requestobj.requeststatus === '行程中'){

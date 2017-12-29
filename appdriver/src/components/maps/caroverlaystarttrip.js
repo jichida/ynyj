@@ -113,7 +113,7 @@ export class Page extends React.Component {
                     onClickNext={this.onClickNext.bind(this,'接到乘客')}
                     curlocation={curlocation}
                 />
-            playaudio('audio4');
+            // playaudio('audio4');
         }
         else if(currentrequest.requeststatus === '待上车'){
             CaroverlayCo =

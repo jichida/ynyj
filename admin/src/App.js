@@ -31,19 +31,19 @@ import {UserdriverlistList,UserdriverlistEdit} from './components/userdrivers/in
 
 //import fakeRestServer from './restServer';
 import {BaseInfoCompanyList} from './components/platform/baseinfocompany.js';
-import {BaseInfoCompanyStatList} from './components/platform/baseinfocompanystat.js';
+import {BaseInfoCompanyStatList,BaseInfoCompanyStatEdit} from './components/platform/baseinfocompanystat.js';
 import {BaseInfoCompanyServiceList} from './components/platform/baseinfocompanyservice.js';
 import {BaseInfoCompanyPermitList} from './components/platform/baseinfocompanypermit.js';
 import {BaseInfoCompanyPayList,BaseInfoCompanyPayCreate,BaseInfoCompanyPayEdit}  from './components/platform/baseinfocompanypay.js';
 import {BaseInfoCompanyFareList,BaseInfoCompanyFareCreate,BaseInfoCompanyFareEdit}  from './components/platform/baseinfocompanyfare.js';
 import {BaseInfoVehicleList,BaseInfoVehicleEdit} from './components/platform/baseinfovehicle.js';
-import {BaseInfoVehicleInsuranceList,BaseInfoVehicleInsuranceCreate,BaseInfoVehicleInsuranceEdit,BaseInfoVehicleInsuranceShow} from './components/platform/baseinfovehicleinsurance.js';
+import {BaseInfoVehicleInsuranceList,BaseInfoVehicleInsuranceCreate,BaseInfoVehicleInsuranceEdit} from './components/platform/baseinfovehicleinsurance.js';
 import {BaseInfoVehicleTotalMileList,BaseInfoVehicleTotalMileShow} from './components/platform/baseinfovehicletotalmile.js';
 import {BaseInfoDriverList,BaseInfoDriverEdit}  from './components/platform/baseinfodriver.js';
 import {BaseInfoDriverEducateList,BaseInfoDriverEducateCreate,BaseInfoDriverEducateEdit} from './components/platform/baseinfodrivereducate.js';
-import {BaseInfoDriverAppList,BaseInfoDriverAppShow} from './components/platform/baseinfodriverapp.js';
+import {BaseInfoDriverAppList,BaseInfoDriverAppEdit} from './components/platform/baseinfodriverapp.js';
 import {BaseInfoDriverStatList} from './components/platform/baseinfodriverstat.js';
-import {BaseInfoPassengerList,BaseInfoPassengerShow} from './components/platform/baseinfopassenger.js';
+import {BaseInfoPassengerList,BaseInfoPassengerEdit} from './components/platform/baseinfopassenger.js';
 
 import {OrderCreateList,OrderCreateShow}  from './components/platform/ordercreate.js';
 import {OrderMatchList,OrderMatchShow}  from './components/platform/ordermatch.js';
@@ -58,10 +58,10 @@ import  {OperatePayList,OperatePayShow} from './components/platform/operatepay.j
 import  {PositionVehicleList,PositionVehicleShow} from './components/platform/positionvehicle.js';
 import  {PositionDriverList,PositionDriverShow} from './components/platform/positiondriver.js';
 
-import  {RatedDriverList,RatedDriverShow} from './components/platform/rateddriver.js';
-import  {RatedDriverPunishList,RatedDriverPunishShow} from './components/platform/rateddriverpunish.js';
-import  {RatedPassengerList,RatedPassengerShow} from './components/platform/ratedpassenger.js';
-import  {RatedPassengerComplaintList,RatedPassengerComplaintShow} from './components/platform/ratedpassengercomplaint.js';
+import  {RatedDriverList,RatedDriverCreate,RatedDriverEdit} from './components/platform/rateddriver.js';
+import  {RatedDriverPunishList,RatedDriverPunishCreate,RatedDriverPunishEdit} from './components/platform/rateddriverpunish.js';
+import  {RatedPassengerList,RatedPassengerEdit} from './components/platform/ratedpassenger.js';
+import  {RatedPassengerComplaintList,RatedPassengerComplaintCreate,RatedPassengerComplaintEdit} from './components/platform/ratedpassengercomplaint.js';
 import  {FaretypelistList,FaretypelistCreate,FaretypelistEdit,FaretypelistShow} from './components/faretype/index.js';
 
 import {NotifyMessagelistList,NotifyMessagelistCreate,NotifyMessagelistEdit,NotifyMessagelistShow} from './components/notifymessage/index.js';
@@ -102,18 +102,18 @@ class App extends Component {
 
             <Resource name="baseinfocompany" list={BaseInfoCompanyList} />
             <Resource name="baseinfocompanyservice" list={BaseInfoCompanyServiceList}/>
-            <Resource name="baseinfocompanystat" list={BaseInfoCompanyStatList}  />
+            <Resource name="baseinfocompanystat" list={BaseInfoCompanyStatList}  edit={BaseInfoCompanyStatEdit}/>
             <Resource name="baseinfocompanypermit" list={BaseInfoCompanyPermitList}  />
-            <Resource name="baseinfocompanypay" list={BaseInfoCompanyPayList} create={BaseInfoCompanyPayCreate} edit={BaseInfoCompanyPayEdit} />
-            <Resource name="baseinfocompanyfare" list={BaseInfoCompanyFareList}  create={BaseInfoCompanyFareCreate}  edit={BaseInfoCompanyFareEdit} />
+            <Resource name="baseinfocompanypay" list={BaseInfoCompanyPayList} create={BaseInfoCompanyPayCreate} edit={BaseInfoCompanyPayEdit} remove={Delete} />
+            <Resource name="baseinfocompanyfare" list={BaseInfoCompanyFareList}  create={BaseInfoCompanyFareCreate}  edit={BaseInfoCompanyFareEdit} remove={Delete} />
             <Resource name="baseinfovehicle" list={BaseInfoVehicleList}  edit={BaseInfoVehicleEdit}/>
-            <Resource name="baseinfovehicleinsurance" list={BaseInfoVehicleInsuranceList} create={BaseInfoVehicleInsuranceCreate}  edit={BaseInfoVehicleInsuranceEdit}  show={BaseInfoVehicleInsuranceShow} />
+            <Resource name="baseinfovehicleinsurance" list={BaseInfoVehicleInsuranceList} create={BaseInfoVehicleInsuranceCreate}  edit={BaseInfoVehicleInsuranceEdit} remove={Delete}  />
             <Resource name="baseinfovehicletotalmile" list={BaseInfoVehicleTotalMileList} />
             <Resource name="baseinfodriver" list={BaseInfoDriverList}  edit={BaseInfoDriverEdit}  />
-            <Resource name="baseinfodrivereducate" list={BaseInfoDriverEducateList} create={BaseInfoDriverEducateCreate}  edit={BaseInfoDriverEducateEdit} />
-            <Resource name="baseinfodriverapp" list={BaseInfoDriverAppList} show={BaseInfoDriverAppShow} />
+            <Resource name="baseinfodrivereducate" list={BaseInfoDriverEducateList} create={BaseInfoDriverEducateCreate}  edit={BaseInfoDriverEducateEdit} remove={Delete} />
+            <Resource name="baseinfodriverapp" list={BaseInfoDriverAppList} edit={BaseInfoDriverAppEdit} />
             <Resource name="baseinfodriverstat" list={BaseInfoDriverStatList}  />
-            <Resource name="baseinfopassenger" list={BaseInfoPassengerList} show={BaseInfoPassengerShow} />
+            <Resource name="baseinfopassenger" list={BaseInfoPassengerList} edit={BaseInfoPassengerEdit} />
             <Resource name="ordercreate" list={OrderCreateList} show={OrderCreateShow} />
             <Resource name="ordermatch" list={OrderMatchList} show={OrderMatchShow} />
             <Resource name="ordercancel" list={OrderCancelList} show={OrderCancelShow} />
@@ -127,10 +127,10 @@ class App extends Component {
             <Resource name="positionvehicle" list={PositionVehicleList} show={PositionVehicleShow} />
             <Resource name="positiondriver" list={PositionDriverList} show={PositionDriverShow} />
 
-            <Resource name="rateddriver" list={RatedDriverList} show={RatedDriverShow} />
-            <Resource name="rateddriverpunish" list={RatedDriverPunishList} show={RatedDriverPunishShow} />
-            <Resource name="ratedpassenger" list={RatedPassengerList} show={RatedPassengerShow} />
-            <Resource name="ratedpassengercomplaint" list={RatedPassengerComplaintList} show={RatedPassengerComplaintShow} />
+            <Resource name="ratedpassenger" list={RatedPassengerList} edit={RatedPassengerEdit} />
+            <Resource name="rateddriver" list={RatedDriverList} create={RatedDriverCreate}  edit={RatedDriverEdit}  />
+            <Resource name="rateddriverpunish" list={RatedDriverPunishList} create={RatedDriverPunishCreate}  edit={RatedDriverPunishEdit} />
+            <Resource name="ratedpassengercomplaint" list={RatedPassengerComplaintList} create={RatedPassengerComplaintCreate}  edit={RatedPassengerComplaintEdit} />
 
             <Resource name="faretype" list={FaretypelistList} create={FaretypelistCreate} edit={FaretypelistEdit} show={FaretypelistShow} />
             <Resource name="notifymessage" list={NotifyMessagelistList} create={NotifyMessagelistCreate} edit={NotifyMessagelistEdit} show={NotifyMessagelistShow} remove={Delete} />

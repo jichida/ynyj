@@ -4,7 +4,7 @@
 let winston = require('../log/log.js');
 let PubSub = require('pubsub-js');
 const config = require('../config.js');
-const interval = require('./interval.js');
+const interval = require('./interval');
 
 const Platform_baseInfoDriverApp= require('./Platform_baseInfoDriverApp/index');
 const Platform_baseInfoPassenger= require('./Platform_baseInfoPassenger/index');
@@ -70,7 +70,7 @@ const platformhandlers = {
         'Insert':Platform_ratedDriverPunish.insertRatedDriverPunish
     },
     'Platform_ratedPassenger':{
-        'Insert':Platform_ratedPassenger.insertRatedPassenger
+        'Insert':Platform_ratedPassenger.insertRatedPassenger,
     },
     'Platform_ratedPassengerComplaint':{
         'Insert':Platform_ratedPassengerComplaint.insertRatedPassengerComplaint
@@ -93,6 +93,10 @@ let startplatformmonitor = ()=>{
     });
 
     interval.interval_baseInfoCompanyStat();
+
+    interval.interval_baseInfoVehicleTotalMile();
+
+    interval.interval_baseInfoDriverStat();
 }
 
 exports.startplatformmonitor  = startplatformmonitor;

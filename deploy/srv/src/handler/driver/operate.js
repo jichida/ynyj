@@ -31,7 +31,7 @@ exports.operatelogin = (socket,actiondata,ctx)=>{
 exports.operatelogout = (socket,actiondata,ctx)=>{
 
     ctx.bizstatus = 4;//4.停运
-    if(ctx.hasOwnProperty('licenseld')){
+    // if(ctx.hasOwnProperty('licenseld')){
         let postdata = {
             vehicleno:ctx.driverinfo.VehicleNo,
             licenseld:ctx.driverinfo.LicenseId,
@@ -43,6 +43,6 @@ exports.operatelogout = (socket,actiondata,ctx)=>{
             type:'Platform_operateLogout',
             payload:postdata
         });
-    }
+    // }
 
 }

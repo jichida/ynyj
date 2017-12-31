@@ -5,6 +5,7 @@ let PubSub = require('pubsub-js');
 const winston = require('../../log/log.js');
 const notifymessage_all = require('../common/notifymessage.js');
 const moment = require('moment');
+const platformpay = require('../../platform/platformpay');
 
 let getorderdetail_command =(socket,actiondata,ctx,commandstring)=>{
   let isvaild = false;
@@ -87,16 +88,7 @@ exports.payorderwithcash = (socket,actiondata,ctx)=>{
             subtype:'order'
           });
 
-          //功能缺失！
-          //   PubSub.publish('Platformmsgs', {
-          //     action:'Insert',
-          //     type:'Platform_ratedDriver',
-          //     payload:{
-          //       triporderid:triporder._id,
-          //       scoreservice:triporder.ratedriverinfo.ratenum,
-          //       detail:triporder.ratedriverinfo.comment
-          //     }
-          // });
+          platformpay.notifyplatform_orderpaied(triporder);
         }
         else{
           socket.emit('common_err',{errmsg:`找不到相应的订单:${JSON.stringify(actiondata)}`,title:'支付',type:'payorderwithcash'});
@@ -249,15 +241,16 @@ let updateorder_comment = (socket,actiondata,ctx)=>{
             // });
           }
           else if(ctx.usertype === 'driver'){//司机=》乘客评论
-              PubSub.publish('Platformmsgs', {
-                action:'Update',
-                type:'Platform_ratedPassenger',
-                payload:{
-                  triporderid:triporder._id,
-                  scoreservice:triporder.rateriderinfo.ratenum,
-                  detail:triporder.rateriderinfo.comment
-                }
-            });
+            //  注意:功能缺失！司机对乘客的评价不用接口
+            //   PubSub.publish('Platformmsgs', {
+            //     action:'Insert',
+            //     type:'Platform_ratedPassenger',
+            //     payload:{
+            //       triporderid:triporder._id,
+            //       scoreservice:triporder.rateriderinfo.ratenum,
+            //       detail:triporder.rateriderinfo.comment
+            //     }
+            // });
           }
 
         }

@@ -2,7 +2,7 @@ const async = require('async');
 const PubSub = require('pubsub-js');
 const moment = require('moment');
 // const DBModels = require('../db/models.js');
-const dbplatform = require('../db/modelsplatform.js');
+const dbplatform = require('../../db/modelsplatform.js');
 
 const interval_baseInfoCompanyStat = ()=>{
 
@@ -46,5 +46,4 @@ const interval_baseInfoCompanyStat = ()=>{
   });
 }
 
-
-exports.interval_baseInfoCompanyStat= interval_baseInfoCompanyStat;
+module.exports = interval_baseInfoCompanyStat;

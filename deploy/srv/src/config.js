@@ -29,11 +29,11 @@ let config =  {
   faretypemap:{
        '快车':'590c8e423beda6051b5afa26',
        '出租车':'590c8e4d3beda6051b5afa27',
-       '代驾':'590c8e593beda6051b5afa28',
+       '网约车':'590c8e593beda6051b5afa29',
   }
 };
 
-// 
+//
 // config.setfaretypemap =  (faretypemap)=>{
 //   config.faretypemap = faretypemap;
 //   console.log(`setfaretypemap:${JSON.stringify(config.faretypemap )}`);

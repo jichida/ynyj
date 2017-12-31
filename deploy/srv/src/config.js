@@ -27,25 +27,23 @@ let config =  {
   mongodburl:process.env.MONGO_URL || `mongodb://localhost/ynyj`,
   defaultprofileimage:'newimg/17.png',
   faretypemap:{
-       '快车':'001',
-       '出租车':'002',
-       '代驾':'003',
-       '顺风车':'004',
-       '专车':'005',
+       '快车':'590c8e423beda6051b5afa26',
+       '出租车':'590c8e4d3beda6051b5afa27',
+       '代驾':'590c8e593beda6051b5afa28',
   }
 };
 
-
-config.setfaretypemap =  (faretypemap)=>{
-  config.faretypemap = faretypemap;
-  console.log(`setfaretypemap:${JSON.stringify(config.faretypemap )}`);
-};
-
-config.setcompanyandaddress =  (CompanyId,Address)=>{
-  config.CompanyId = CompanyId;
-  config.Address = Address;
-  console.log(`setcompanyandaddress:${CompanyId},===>${Address}`);
-};
+// 
+// config.setfaretypemap =  (faretypemap)=>{
+//   config.faretypemap = faretypemap;
+//   console.log(`setfaretypemap:${JSON.stringify(config.faretypemap )}`);
+// };
+//
+// config.setcompanyandaddress =  (CompanyId,Address)=>{
+//   config.CompanyId = CompanyId;
+//   config.Address = Address;
+//   console.log(`setcompanyandaddress:${CompanyId},===>${Address}`);
+// };
 
 
 module.exports = config;

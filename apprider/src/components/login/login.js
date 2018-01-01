@@ -137,6 +137,10 @@ export class Page extends Component {
       let loginwithqq = ()=>{
           loginQQ((result)=>{
               if(result.code === '0'){
+                if(!result.openId || result.openId === ''){
+                  alert(`未获取到qq参数:${result.openId}`);
+                  return;
+                }
                 this.props.dispatch(loginwithoauth_request({bindtype:'qq',openid:result.openId}));
               }
           });
@@ -144,6 +148,10 @@ export class Page extends Component {
       let loginwithwechat = ()=>{
           loginWx((result)=>{
             if(result.code === '0'){
+              if(!result.openid || result.openid === ''){
+                alert(`未获取到微信参数:${result.openid}`);
+                return;
+              }
               this.props.dispatch(loginwithoauth_request({bindtype:'weixin',openid:result.openid}));
             }
           });

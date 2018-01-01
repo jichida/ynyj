@@ -25,7 +25,7 @@
   */
   export const loginToWeixin = (fun) => {
     var data={"xview":"WeChat Login","wxappid":config.wxappid,"wxappsecret":config.wxappsecret};
-    alert(`loginToWeixin输入参数==>${JSON.stringify(data)}`);
+    // alert(`loginToWeixin输入参数==>${JSON.stringify(data)}`);
     xviewPhoneWithAppDataWithCallbackMethodWithType(data,fun,"1");
   }
   /**

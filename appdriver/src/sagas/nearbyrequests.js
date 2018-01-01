@@ -7,6 +7,7 @@ import {
 } from '../actions';
 import _ from 'lodash';
 import {normalizr_requestlist} from '../reducers/normalizr';
+import {playaudio} from '../env/audio';
 
 export function* createnearbyrequestsflow(){
   yield takeLatest(`${serverpush_nearbyrequests}`, function*(action) {
@@ -18,6 +19,14 @@ export function* createnearbyrequestsflow(){
         list:nearbyrequestsresult.result.list||[],
         requests:nearbyrequestsresult.entities.requests||{}
       };
+      const oldnearbyrequests = yield select((state)=>{
+        return state.operate.nearbyrequests;
+      });
+      //查找现在list中有但oldlist中没有的数据
+      const differlist = _.difference(nearbyrequests.list,oldnearbyrequests.list);
+      if(differlist.length > 0){
+        playaudio('audio4');
+      }
       yield put(set_nearbyrequestsresult(nearbyrequests));
     }
     catch(e){
@@ -44,6 +53,7 @@ export function* createnearbyrequestsflow(){
           }
         };
       yield put(set_nearbyrequestsresult(nearbyrequests));
+      playaudio('audio4');
     }
     catch(e){
       console.log(e);

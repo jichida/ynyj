@@ -1,5 +1,5 @@
 export const haveWechatApp=(fncallback)=>{
-  fncallback({code: '0',message:'仅测试'});
+  fncallback({code: '1',message:'仅测试'});
 }
 
 export const loginQQ = (fncallback)=>{

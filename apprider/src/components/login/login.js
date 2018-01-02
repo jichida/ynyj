@@ -134,6 +134,7 @@ export class Page extends Component {
 
     render(){
       const {isweixininstalled} = this.props;
+
       let loginwithqq = ()=>{
           loginQQ((result)=>{
               if(result.code === '0'){
@@ -169,7 +170,7 @@ export class Page extends Component {
                         <img src={Img_More} />
                         <div>
                             <a onClick={loginwithqq}><img src={Img_QQ} /></a>
-                            <a onClick={loginwithwechat}><img src={Img_Wexin} /></a>
+                            {isweixininstalled &&   <a onClick={loginwithwechat}><img src={Img_Wexin} /></a> }
                         </div>
                     </div>
                 </div>
@@ -178,7 +179,7 @@ export class Page extends Component {
     }
 }
 
-const data = ({userlogin}) => { return userlogin; }
+const data = ({userlogin,app:{isweixininstalled}}) => { return {...userlogin,isweixininstalled}; }
 Page = connect(data)(Page);
 
 export default Page;

@@ -231,6 +231,22 @@
     };
   	window.xview.sendSmsWithPhoneNumber(phone,"xviewCallBack_sendSmsWithPhoneNumber");
   }
+
+  export const haveWechatApp=(fun)=>{
+    window.haveWechatAppcallBack=function(result){
+      if(typeof result === 'string'){
+          result = JSON.parse(result);
+      }
+      fun(result);
+    };
+    if(!!window.xview && !!window.xview.haveWechatApp){
+      let jsonstring = JSON.stringify({callback:"haveWechatAppcallBack"});
+      window.xview.haveWechatApp(jsonstring);
+    }
+    else{
+      fun({code: '0',message:'找不到该函数'});
+    }
+  }
  /**
    * 获取经纬度
    @method getLocation

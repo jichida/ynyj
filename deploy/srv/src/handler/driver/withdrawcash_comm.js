@@ -199,7 +199,7 @@ exports.withdrawcashapplypaid = (updateditem,callback,userModel)=>{
                                              _id: updateditem._id,
                                          },{$set:{rechargerecord:rechargerecord2._id}}, {new: true}, (err, updateditem)=> {
                                            callback(null,'操作成功');
-                                         });                                      
+                                         });
                                     }
                                     else{
                                         callback('更新用户余额失败！');

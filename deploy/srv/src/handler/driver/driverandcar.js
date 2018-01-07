@@ -12,7 +12,7 @@ let get_fnsavebaseinfodriver = (retdoc)=>{
   return (fncallback)=>{
       let baseInfoDriver = retdoc.Platform_baseInfoDriver || {};
       baseInfoDriver.CompanyId = config.CompanyId;
-      baseInfoDriver.Address = config.Address;
+      // baseInfoDriver.Address = config.Address;
       let dbplatformmodel = DBPlatformModels.Platform_baseInfoDriverModel;
       let baseInfoDriverid = retdoc.Platform_baseInfoDriverId;
       if(typeof baseInfoDriverid === 'string'){
@@ -34,9 +34,9 @@ let get_fnsavebaseinfovehicle = (retdoc)=>{
   return (fncallback)=>{
       let baseinfovehicleid = retdoc.Platform_baseInfoVehicleId;
       if(!!baseinfovehicleid){
-      if(typeof baseinfovehicleid === 'string'){
-        baseinfovehicleid =  mongoose.Types.ObjectId(baseinfovehicleid);
-      }
+        if(typeof baseinfovehicleid === 'string'){
+          baseinfovehicleid =  mongoose.Types.ObjectId(baseinfovehicleid);
+        }
       }
       baseinfovehicleid = baseinfovehicleid || new mongoose.mongo.ObjectID();
 
@@ -45,9 +45,9 @@ let get_fnsavebaseinfovehicle = (retdoc)=>{
       }
       let mycarid = retdoc.defaultmycar;
       if(!!mycarid){
-      if(typeof mycarid === 'string'){
-        mycarid =  mongoose.Types.ObjectId(mycarid);
-      }
+        if(typeof mycarid === 'string'){
+          mycarid =  mongoose.Types.ObjectId(mycarid);
+        }
       }
 
       mycarid = mycarid || new mongoose.mongo.ObjectID();
@@ -55,7 +55,7 @@ let get_fnsavebaseinfovehicle = (retdoc)=>{
       let baseInfovehicle = retdoc.Platform_baseInfoVehicle || {};
       baseInfovehicle._id = baseinfovehicleid;
       baseInfovehicle.CompanyId = config.CompanyId;
-      baseInfovehicle.Address = config.Address;
+      // baseInfovehicle.Address = config.Address;
 
 
       let dbplatformmodel = DBPlatformModels.Platform_baseInfoVehicleModel;

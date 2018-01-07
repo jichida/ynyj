@@ -14,8 +14,8 @@ let config =  {
   uploadurl:'/uploader',
   logdir:'../../dist/log',
 
-  CompanyId:'58a30c05061d53264c182029',
-  Address:213000,
+  CompanyId:'zncx',
+  // Address:340000,
 
   expRequestMinutes:200,//2分钟之内
   maxAge:86400000,

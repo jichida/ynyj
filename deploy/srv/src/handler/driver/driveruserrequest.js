@@ -127,10 +127,11 @@ exports.sendcurlocationtoserver = (socket,actiondata,ctx)=>{
 
     //===========插入平台的处理===========
         let postdata = {
-              vehicleno: ctx.driverinfo.VehicleNo,
-              licenseld: ctx.driverinfo.LicenseId,
-              vehicleregioncode:ctx.driverinfo.VehicleRegionCode,
-              riverregioncode:actiondata.DriverRegionCode,//注:DriverRegionCode由参数发送过来<--------------------------------
+              VehicleNo: ctx.driverinfo.VehicleNo,
+              LicenseId: ctx.driverinfo.LicenseId,
+              VehicleRegionCode:ctx.driverinfo.VehicleRegionCode,
+              DriverRegionCode:ctx.driverinfo.DriverRegionCode,//注:DriverRegionCode由参数发送过来<--------------------------------
+
               driverlocation: actiondata.driverlocation,//营运状态	1:载客、2.接单、3 :空驶、4.停运==>停运->空驶->接单->载客->空驶
               bizstatus:ctx.bizstatus,//营运状态	1:载客、2.接单、3 :空驶、4.停运==>停运->空驶->接单->载客->空驶
               triporderid:ctx.curtriporderid,
@@ -256,8 +257,8 @@ exports.updaterequeststatus = (socket,actiondata,ctx)=>{
           totaldistance:0,
           totalduring:0,
           totalprice:0,
-          starttime:datenow,
-          lastlocationtime:datenow,
+          starttime: datenow,
+          lastlocationtime: datenow,
           lastlocation:actiondata.driverlocation,
       };
       calcpriceanddistance(ctx,actiondata.driverlocation,true);
@@ -266,7 +267,7 @@ exports.updaterequeststatus = (socket,actiondata,ctx)=>{
       ctx.bizstatus = 3;//3 :空驶
       updatedrequest.getoffdate_at = datenow;//下车时间
       updatedrequest.getofflocation = actiondata.driverlocation;//下车位置
-      updatedorder.getoffdate_at = datenow;//上车时间
+      updatedorder.getoffdate_at =  datenow;//上车时间
       updatedorder.getofflocation = actiondata.driverlocation;//下车位置
       //<------动态计算价格，然后设置ctx.realtimeprice为空
       //注意：仍需监听支付消息!!!!!<--user..

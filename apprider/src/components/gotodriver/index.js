@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import renderHTML from 'react-render-html';
 import {getabouthtml_request} from '../../actions';
 import NavBar from '../tools/nav.js';
+import {opendownloadurl} from '../../env/os';
 
 export class Page extends React.Component {
     componentWillMount () {
@@ -21,6 +22,7 @@ export class Page extends React.Component {
           url = downloadurl_ios;
         }
         console.log(`download url ${url}`);
+        opendownloadurl(url);
     }
     render() {
         return (

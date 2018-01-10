@@ -181,6 +181,7 @@
   	}
     window.xview.openiPhoneApp(url);
   }
+
   /**
    * 获取通讯录信息
    @method getPhoneBook

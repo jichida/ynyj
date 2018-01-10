@@ -4,6 +4,7 @@ import renderHTML from 'react-render-html';
 import {getabouthtml_request} from '../../actions';
 import NavBar from '../tools/nav.js';
 import {opendownloadurl} from '../../env/os';
+import _ from 'lodash';
 
 export class Page extends React.Component {
     componentWillMount () {
@@ -25,11 +26,13 @@ export class Page extends React.Component {
         opendownloadurl(url);
     }
     render() {
+      let title = _.get(this.props['gotodriver'],'title','司机入驻');
+      let desc = _.get(this.props['gotodriver'],'desc',`<img src="newimg/r1.png" />`);
         return (
             <div className="settingPage AppPage">
-                <NavBar back={true} title={"司机入驻"} />
+                <NavBar back={true} title={title} />
                 <div className="list gotodriver">
-                    <img src="newimg/r1.png" />
+                    {renderHTML(desc)}
                     <div>
                         <img src="newimg/r2.png" onClick={this.download.bind(this, "android")} />
                         <img src="newimg/r3.png" onClick={this.download.bind(this, "ios")} />
@@ -40,7 +43,7 @@ export class Page extends React.Component {
     }
 }
 
-const data =  ({app:{downloadurl_android,downloadurl_ios}}) =>{
-    return {downloadurl_android,downloadurl_ios};
+const data =  ({app:{downloadurl_android,downloadurl_ios},about}) =>{
+    return {downloadurl_android,downloadurl_ios,...about};
 };
 export default connect(data)(Page);

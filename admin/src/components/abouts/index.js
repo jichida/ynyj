@@ -52,6 +52,7 @@ const AboutlistCreate = (props) => {
                 { id: 'riderlaws', name: '乘客端法律条款' },
                 { id: 'ridercancelrules', name: '乘客端取消规则' },
                 { id: 'rideraboutus', name: '乘客端关于我们' },
+                { id: 'gotodriver', name: '乘客端司机入驻' },
                 { id: 'riderservicerule', name: '乘客端注册协议' },
                 { id: 'driverservicerule', name: '司机端注册协议' },
                 { id: 'driveruserguide', name: '司机端新手入门' },
@@ -74,9 +75,11 @@ const AboutlistEdit = (props) => {
                { id: 'riderlaws', name: '乘客端法律条款' },
                { id: 'ridercancelrules', name: '乘客端取消规则' },
                { id: 'rideraboutus', name: '乘客端关于我们' },
+               { id: 'gotodriver', name: '乘客端司机入驻' },
                { id: 'riderservicerule', name: '乘客端注册协议' },
                { id: 'driverservicerule', name: '司机端注册协议' },
                { id: 'driveruserguide', name: '司机端新手入门' },
+
             ]} />
               <TextInput label="标题"  source="title" />
               <RichTextInput label="详细信息" source="desc" addLabel={false}/>
@@ -91,7 +94,6 @@ const AboutlistList = (props) => (//
         <Datagrid>
         <TextField label="类型" source="keyname" />
         <TextField label="标题" source="title" />
-        <RichTextField label="详细信息"  source="desc" stripTags={false} />
         <EditButton />
         </Datagrid>
     </List>

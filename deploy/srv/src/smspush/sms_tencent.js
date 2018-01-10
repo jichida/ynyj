@@ -47,7 +47,7 @@ const sendsmstouser = (tel,reason,authcode,callbackfn)=>{
         'driver_register':67427,//`您正在注册旺旺约车司机端账号，验证码是：${authcode}，请勿告诉他人！`,
         'driver_login':67428,//`您正在登录旺旺约车司机端，验证码是：${authcode}，请勿泄漏。`,
         'driver_isapprovaledtrue':67429,//`您已经审核为旺旺约车司机,请登录后查看。`,
-        'driver_isapprovaledfalse':67430,///`您申旺旺约车司机未通过,请登录后查看。`,
+        'driver_isapprovaledfalse':78158,///`您申旺旺约车司机未通过,请登录后查看。`,
       }
     if(!!textobj[reason]){
       if(config.issmsdebug){

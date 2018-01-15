@@ -176,9 +176,9 @@
    @since 2.0
    */
   export const openiPhoneApp = (url) => {
-  	if(url.indexOf("http://")===-1){
-  		url="http://"+url;
-  	}
+  	// if(url.indexOf("http://")===-1){
+  	// 	url="http://"+url;
+  	// }
     window.xview.openiPhoneApp(url);
   }
 

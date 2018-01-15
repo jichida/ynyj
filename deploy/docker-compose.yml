@@ -23,6 +23,7 @@ services:
       - ./srv:/app
       - ./dist:/dist
     environment:
+      - platformserverurl=http://192.168.0.1:8081
       - MONGO_URL=mongodb://192.168.0.1:27018/ynyj
       - listenport=3007
     links:

@@ -1,6 +1,6 @@
 
 let config =  {
-  platformserverurl:'http://127.0.0.1:8081',
+  platformserverurl:'http://192.168.0.1:8081',
   secretkey:'ynyjkey',
   listenport:process.env.listenport||3006,
   rooturl:process.env.rooturl || 'http://ynyj.com28.cn',
@@ -14,7 +14,7 @@ let config =  {
   uploadurl:'/uploader',
   logdir:'../../dist/log',
 
-  CompanyId:'zncx',
+  CompanyId:'wangwang',
   // Address:340000,
 
   expRequestMinutes:200,//2分钟之内

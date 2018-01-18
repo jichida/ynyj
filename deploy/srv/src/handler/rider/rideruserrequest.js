@@ -6,7 +6,7 @@ let DBModels = require('../../db/models.js');
 const async = require('async');
 const rr = require('./recharge.js');
 const userlogin = require('./rideruserlogin');
-const _ = required('lodash');
+const _ = require('lodash');
 
 const notifymessage_all = require('../common/notifymessage.js');
 

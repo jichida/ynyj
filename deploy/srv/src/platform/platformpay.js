@@ -119,7 +119,7 @@ const notifyplatform_orderpaied = (order)=>{
     BookModel:_.get(order,'driverinfo.Model',''),
     LicenseId:_.get(order,'driverinfo.LicenseId',''),
     DriverName:_.get(order,'driverinfo.DriverName',''),
-    VehicleNo:_.get(order,'driver.VehicleNo',''),
+    VehicleNo:_.get(order,'driverinfo.VehicleNo',''),
     OrderId:_.get(order,'_id',''),
     FareType:_.get(order,'ctxrealtimeprice.fareid',''),
     BookDepTime:_.get(order,'dated_at',order.created_at),

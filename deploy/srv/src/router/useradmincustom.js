@@ -1,16 +1,30 @@
-let DBModels = require('../db/models.js');
-let mongoose     = require('mongoose');
-let path = require('path');
-var fs = require('fs');
+const DBModels = require('../db/models.js');
+const mongoose     = require('mongoose');
+const path = require('path');
+const fs = require('fs');
 const config = require('../config.js');
-let middlewareauth = require('./middlewareauth.js');
+const middlewareauth = require('./middlewareauth.js');
 const pinche = require('../handler/common/pinche.js');
 const _ = require('lodash');
-let dbs = require('../db/index.js');
+const dbs = require('../db/index.js');
+const interval = require('../platform/interval');
 
 let startadmincustom = (app)=>{
+  app.post('/statone/:resourcename',(req,res)=>{
+    const resourcename = req.params.resourcename;
+    if(resourcename === 'baseinfocompanystat'){
+      interval.interval_baseInfoCompanyStat();
+    }
+    else if(resourcename === 'baseinfovehicletotalmile'){
+      interval.interval_baseInfoVehicleTotalMile();
+    }
+    else if(resourcename === 'baseinfodriverstat'){
+      interval.interval_baseInfoDriverStat();
+    }
+  });
+
   app.post('/findone/:resourcename',(req,res)=>{
-    console.log("findone:" + req.params.resourcename);
+    //console.log("findone:" + req.params.resourcename);
     let schmodel = dbs[req.params.resourcename];
     let dbModel = mongoose.model(schmodel.collectionname, schmodel.schema);
     dbModel.findOne({},(err,result)=>{
@@ -26,7 +40,7 @@ let startadmincustom = (app)=>{
 
 
   app.post('/pincheorderrefund/:orderid',(req,res)=>{
-      console.log("orderid:" + req.params.orderid);
+      //console.log("orderid:" + req.params.orderid);
       pinche.pincheorderrefund(req.params.orderid,(err,result)=>{
         if(!!result){
           res.status(200).json(result);
@@ -38,9 +52,9 @@ let startadmincustom = (app)=>{
   });
 
   app.post('/createmycouponsbatch',(req,res)=>{
-      //console.log("orderid:" + req.params.orderid);
+      ////console.log("orderid:" + req.params.orderid);
       let record = req.body;
-      console.log(`createmycouponsbatch record===>${JSON.stringify(record)}`);
+      //console.log(`createmycouponsbatch record===>${JSON.stringify(record)}`);
       _.map(record.creators,(creator)=>{
         _.map(record.triptypes,(triptype)=>{
           for(let i = 0;i < record.couponnumber;i++){

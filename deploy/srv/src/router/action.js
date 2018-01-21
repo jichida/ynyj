@@ -9,9 +9,10 @@ const withdraw = require('../handler/driver/withdrawcash.js');
 const jpushdriver = require('../smspush/pushdriver.js');
 const jpushrider = require('../smspush/pushrider.js');
 const moment = require('moment');
+const platformaction = require('../platform/platformaction.js');
 
 let preaction =(actionname,collectionname,doc,fnresult)=>{
-    let retdoc = doc.data;
+  let retdoc = doc.data;
   if(actionname === 'findByIdAndUpdate' && collectionname === 'withdrawcashapply'){
     //这里需要判断很多东西，比如用户余额是否大于可提取余额
     //是否已经提取过等等
@@ -81,9 +82,9 @@ let preaction =(actionname,collectionname,doc,fnresult)=>{
   }
 
   if(actionname === 'findByIdAndUpdate' && collectionname==='userdriver'){
-    let retdoc = doc.data;
+      let retdoc = doc.data;
       // if(retdoc.approvalstatus === '已审核'){
-      //将Platform_baseInfoVehicle和Platform_baseInfoDriver存入到数据库
+        //将Platform_baseInfoVehicle和Platform_baseInfoDriver存入到数据库
       const saveDriverCar = require('../handler/driver/driverandcar.js');
       let creatorid = retdoc.id;
       if(typeof creatorid === 'string'){
@@ -104,27 +105,27 @@ let preaction =(actionname,collectionname,doc,fnresult)=>{
               const sms = require('../smspush/sms.js');
               sms.sendsmstouser(retdoc.username,retdoc.approvalstatus === '已审核'?
               'driver_isapprovaledtrue':'driver_isapprovaledfalse','',(err,result)=>{
-                console.log(`发送短信通知:${JSON.stringify(result)}`);
+                //console.log(`发送短信通知:${JSON.stringify(result)}`);
               });
             }
           }
-        });    
+        });
       }
       return;
       // }
   }
 
-   console.log(`actionname:${actionname},collectionname:${collectionname}`);
+   //console.log(`actionname:${actionname},collectionname:${collectionname}`);
    if(actionname === 'findByIdAndUpdate' && collectionname==='mycar'){
      let retdoc = doc.data;
-     console.log(`issynctoplatform:${retdoc.issynctoplatform},retdoc.approvalstatus:${retdoc.approvalstatus}`);
+     //console.log(`issynctoplatform:${retdoc.issynctoplatform},retdoc.approvalstatus:${retdoc.approvalstatus}`);
     //  if(retdoc.issynctoplatform && retdoc.approvalstatus === '已审核'){
-       const saveDriverCar = require('../handler/driver/driverandcar.js');
-       let fnsavebaseinfovehicle = saveDriverCar.get_fnsavebaseinfovehicle(retdoc);
-       fnsavebaseinfovehicle((err,result)=>{
-         fnresult(null,result);
-       });
-       return;
+     const saveDriverCar = require('../handler/driver/driverandcar.js');
+     let fnsavebaseinfovehicle = saveDriverCar.get_fnsavebaseinfovehicle(retdoc);
+     fnsavebaseinfovehicle((err,result)=>{
+       fnresult(null,result);
+     });
+     return;
     //  }
    }
 
@@ -150,20 +151,20 @@ let gettakenseatfromorder = (retdoc,fncallback)=>{
        }],
        (err, list)=> {
 
-          console.log(`postaction===========>${JSON.stringify(list)}`);
+          //console.log(`postaction===========>${JSON.stringify(list)}`);
          _.map(list,(item)=>{
            if(item._id === '未支付'){
              retdoc.seatnumbernotpaid = item.seatnumbertotal;
-             console.log(`doc.seatnumbernotpaid===========>${retdoc.seatnumbernotpaid}`);
+             //console.log(`doc.seatnumbernotpaid===========>${retdoc.seatnumbernotpaid}`);
            }
            else if(item._id === '已支付'){
              retdoc.seatnumberpaid  = item.seatnumbertotal;
-             console.log(`doc.seatnumberpaid===========>${retdoc.seatnumberpaid}`);
+             //console.log(`doc.seatnumberpaid===========>${retdoc.seatnumberpaid}`);
            }
          });
          retdoc.seatnumbertotal =  retdoc.seatnumbernotpaid + retdoc.seatnumberpaid;
-         console.log(`doc.seatnumbertotal===========>${retdoc.seatnumbertotal}`);
-         console.log(`postaction===========>${JSON.stringify(retdoc)}`);
+         //console.log(`doc.seatnumbertotal===========>${retdoc.seatnumbertotal}`);
+         //console.log(`postaction===========>${JSON.stringify(retdoc)}`);
          fncallback(null,retdoc);
        });
 }
@@ -175,12 +176,12 @@ let postaction = (actionname,collectionname,doc,fncallback)=>{
   //   seatnumbernotpaid:0
   // });
   let retdoc = doc;
-  console.log(`retdoc===========>${JSON.stringify(retdoc)}`);
+  //console.log(`retdoc===========>${JSON.stringify(retdoc)}`);
   if(actionname === 'findByIdAndUpdate' && collectionname === 'withdrawcashapply'){
     if(doc.status === '已支付' || doc.status === '已拒绝'){
       withdraw.withdrawcashapplypaid(doc,(err,result)=>{
-          console.log("withdrawcashapplypaid err======>" + JSON.stringify(err));
-          console.log("withdrawcashapplypaid result======>" + JSON.stringify(result));
+          //console.log("withdrawcashapplypaid err======>" + JSON.stringify(err));
+          //console.log("withdrawcashapplypaid result======>" + JSON.stringify(result));
       });
     }
   }
@@ -197,15 +198,15 @@ let postaction = (actionname,collectionname,doc,fncallback)=>{
         if(doc.messagetype === 'all' || doc.messagetype === 'rider'){
           jpushrider.sendnotifymessage(doc,(err,result)=>{
              //设置推送消息：
-             console.log(`设置推送消息：err:${JSON.stringify(err)}`);
-             console.log(`设置推送消息：result:${JSON.stringify(result)}`);
+             //console.log(`设置推送消息：err:${JSON.stringify(err)}`);
+             //console.log(`设置推送消息：result:${JSON.stringify(result)}`);
           });
         }
         if(doc.messagetype === 'all' || doc.messagetype === 'driver'){
           jpushdriver.sendnotifymessage(doc,(err,result)=>{
              //设置推送消息：
-             console.log(`设置推送消息：err:${JSON.stringify(err)}`);
-             console.log(`设置推送消息：result:${JSON.stringify(result)}`);
+             //console.log(`设置推送消息：err:${JSON.stringify(err)}`);
+             //console.log(`设置推送消息：result:${JSON.stringify(result)}`);
           });
         }
       }
@@ -224,7 +225,7 @@ let postaction = (actionname,collectionname,doc,fncallback)=>{
           item = item.toJSON();
           retdoc.docs[index] = item;
           gettakenseatfromorder(item,(err,result)=>{
-            console.log(`gettakenseatfromorder,result===>${JSON.stringify(result)}`);
+            //console.log(`gettakenseatfromorder,result===>${JSON.stringify(result)}`);
             fncallback(err,result);
           });
         }
@@ -236,11 +237,13 @@ let postaction = (actionname,collectionname,doc,fncallback)=>{
     }
   }
   fncallback(null,retdoc);
-  PubSub.publish('platformmessage_upload',{
-    action:actionname,//'findByIdAndUpdate',
-    collectionname:collectionname,//'baseinfocompany',
-    doc:retdoc
-  });
+
+  platformaction.postaction(actionname,collectionname,retdoc);
+  // PubSub.publish('platformmessage_upload',{
+  //   action:actionname,//'findByIdAndUpdate',
+  //   collectionname:collectionname,//'baseinfocompany',
+  //   doc:retdoc
+  // });
 }
 
 

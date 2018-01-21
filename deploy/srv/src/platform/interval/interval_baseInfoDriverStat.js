@@ -6,6 +6,14 @@ const dbplatform = require('../../db/modelsplatform.js');
 const _ = require('lodash');
 
 const fn_getOrderCount = (monthtimestring,callbackfn)=>{
+
+  // db.getCollection('ordermatches').aggregate([
+  //      {$match: {"DistributeTime":{"$gte":"2018-01-01 00:00:00","$lt":"2018-02-01 00:00:00"}}},
+  //      {$group: {
+  //          _id: '$LicenseId',
+  //          count: { $sum: 1 },
+  //      }}
+  //      ]);
   //根据LicenseId 统计 ordermatch
   //DistributeTime
   const monthtime = moment(monthtimestring).format('YYYY-MM-01 00:00:00');
@@ -83,6 +91,7 @@ const fn_setbaseInfoDriverStat = (updateddata,callbackfn)=>{
   queryexec.exec((err,driverinfo)=>{
     if(!err && !!driverinfo){
       updateddata.Address = driverinfo.Address;
+      updateddata.UpdateTime = moment().format('YYYY-MM-DD HH:mm:ss');
       const dbModel = dbplatform.Platform_baseInfoDriverStatModel;
       dbModel.findOneAndUpdate({LicenseId:updateddata.LicenseId},
         {

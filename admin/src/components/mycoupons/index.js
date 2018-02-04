@@ -55,7 +55,7 @@ const MycouponlistCreate = (props) => (
        <Create {...props} title={<MycouponcreateTitle />} >
            <SimpleForm>
                <TextInput label="优惠券名字" source="name" />
-               <ReferenceInput source="creator" reference="userrider" allowEmpty>
+               <ReferenceInput label="用户" source="creator" reference="userrider" allowEmpty>
                   <SelectInput optionText="username" />
                </ReferenceInput>
                <SelectInput  label="优惠类型"  source="triptype" choices={[
@@ -81,7 +81,7 @@ const MycouponlistEdit = (props) => {
       return (<Edit title={<MycouponlistTitle />} {...props}>
           <SimpleForm>
             <TextInput label="优惠券名字" source="name" />
-            <ReferenceInput source="creator" reference="userrider" allowEmpty>
+            <ReferenceInput label="用户"  source="creator" reference="userrider" allowEmpty>
                <SelectInput optionText="username" />
             </ReferenceInput>
             <SelectInput  label="优惠类型"  source="triptype" choices={[

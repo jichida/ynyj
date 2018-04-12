@@ -1,0 +1,18 @@
+version: '2'
+services:
+  ynyjserver:
+    image: node:6.11.2
+    restart: always
+    command: node ./index.js
+    working_dir: /app
+    volumes:
+      - ./srv:/app
+      - ./dist:/dist
+    environment:
+      - platformserverurl=http://192.168.0.1:8081
+      - MONGO_URL=mongodb://192.168.0.1:27018/ynyj
+      - listenport=3007
+    ports:
+       - "3007:3007"
+    expose:
+       - "3007"
